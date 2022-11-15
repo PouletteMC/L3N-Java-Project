@@ -3,7 +3,7 @@ package org.example;
 import javax.swing.*;
 import java.awt.*;
 
-public class Main {
+public class Gui {
     public static void main(String[] args) {
         // Create a new JFrame container.
         JFrame frame = new JFrame("Test window");
