@@ -1,4 +1,6 @@
-package org.example.Residence;
+package org.example.Residence.House;
+
+import org.example.Residence.Residence;
 
 public class House extends Residence {
     private int area; // in square meters

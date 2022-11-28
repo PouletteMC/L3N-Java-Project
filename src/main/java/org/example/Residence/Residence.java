@@ -1,5 +1,7 @@
 package org.example.Residence;
 
+import java.util.Arrays;
+
 public class Residence {
     private Residence[] buildings; // An array of buildings within the residence ( house, store, etc. )
     private final String name; // The name of the residence
@@ -55,6 +57,8 @@ public class Residence {
         return buildings.length; // Get the number of buildings in the residence as the length of the buildings array
     }
 
-
-
+    @Override
+    public String toString() {
+        return "La résidence " + this.name + " à en son sein les batiments " + this.buildings;
+    }
 }

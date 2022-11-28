@@ -1,6 +1,7 @@
-package org.example.Residence;
+package org.example.Residence.Bar;
 
 import org.example.Person.Person;
+import org.example.Residence.Residence;
 
 public class Bar extends Residence {
     private String name;

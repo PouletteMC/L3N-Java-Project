@@ -43,5 +43,8 @@ public abstract class Instrument {
         return this.sellingPrice - this.purchasePrice;
     }
 
-
+    @Override
+    public String toString() {
+        return "L'Instrument " + name +"de prix " + sellingPrice + " €";
+    }
 }

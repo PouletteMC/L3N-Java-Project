@@ -1,6 +1,9 @@
-package org.example.Residence;
+package org.example.Residence.Store;
 
 import org.example.Instrument.Instrument;
+import org.example.Residence.Residence;
+
+import java.util.Arrays;
 
 public class MusicStore extends Residence {
     private Instrument[] instruments; // array of instruments
@@ -64,4 +67,8 @@ public class MusicStore extends Residence {
         this.instruments = instruments; // set the array of instruments
     }
 
+    @Override
+    public String toString() {
+        return " Le magasin de musique " + this.name + " se situe à " + this.address + " possède " + this.instruments;
+    }
 }

@@ -6,8 +6,8 @@ public class AcousticGuitar extends Strings {
     private final boolean rightHanded;
     private final int pull;
 
-    public AcousticGuitar(String name, int purchasePrice, int sellingPrice, int length, int width, boolean rightHanded, int pull) {
-        super(name, purchasePrice, sellingPrice, length, width);
+    public AcousticGuitar( int purchasePrice, int sellingPrice, int length, int width, boolean rightHanded, int pull) {
+        super("Guitare acoustique", purchasePrice, sellingPrice, length, width);
         this.rightHanded = rightHanded;
         this.pull = pull;
     }
@@ -18,5 +18,11 @@ public class AcousticGuitar extends Strings {
 
     public int getPull() {
         return pull;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " pour droitier : " + rightHanded +
+                " nombres de tirants : " + pull;
     }
 }

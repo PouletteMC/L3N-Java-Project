@@ -20,4 +20,13 @@ public abstract class Strings extends Instrument {
     public int getWidth() {
         return width;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " , est un instrument à corde : " +
+                " de longueur " + length +
+                ", et de largeur " + width;
+    }
 }
+
+
