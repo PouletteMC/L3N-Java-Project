@@ -12,4 +12,7 @@ public class Tourist extends Person {
     public String getNationality() {
         return nationality;
     }
+
+
+
 }

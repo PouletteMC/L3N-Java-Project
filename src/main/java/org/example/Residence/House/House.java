@@ -1,5 +1,6 @@
 package org.example.Residence.House;
 
+import org.example.Person.Owner;
 import org.example.Residence.Residence;
 
 public class House extends Residence {
@@ -7,6 +8,7 @@ public class House extends Residence {
     private int gardenArea; // in square meters
     private int rooms; // number of rooms
     private String address; // street address
+    private Owner owner; // owner of the house
 
     public House(int area, int gardenArea, int rooms, String address) {
         this.area = area; // Set the area
@@ -14,6 +16,11 @@ public class House extends Residence {
         this.rooms = rooms; // Set the number of rooms
         this.address = address; // Set the address
     }
+
+
+
+
+
 
     public int getArea() {
         return area; // Return the area

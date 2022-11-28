@@ -14,4 +14,10 @@ public abstract class Woodwinds extends Instrument {
     // We provide a getter for the field specific to this class
     public String getType() { return type; }
     // As this class only has a final field, we do not need to provide a setter
+
+
+    @Override
+    public String toString() {
+        return super.toString() + " de type " + type;
+    }
 }

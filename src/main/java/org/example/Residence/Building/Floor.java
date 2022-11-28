@@ -1,10 +1,10 @@
 package org.example.Residence.Building;
 
-public class BuildingFloor extends Building {
+public class Floor extends Building {
     private int floorNumber;
     private Apartment[] apartments;
 
-    public BuildingFloor( int floorNumber, int floors, String address) {
+    public Floor(int floorNumber, int floors, String address) {
         super(floors, address);
         this.floorNumber = floorNumber;
     }

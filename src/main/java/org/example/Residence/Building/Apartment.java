@@ -1,11 +1,13 @@
 package org.example.Residence.Building;
 
-import org.example.Person.Person;
+import org.example.Person.Owner;
+import org.example.Person.Tenant;
 
-public class Apartment extends BuildingFloor {
-    private Person tenant;
+public class Apartment extends Floor {
+    private Tenant tenant;
     private final int area;
     private final int rooms;
+    private Owner owner;
 
 
     public Apartment(int floorNumber, int floors, String address, int area, int rooms) {
@@ -14,11 +16,11 @@ public class Apartment extends BuildingFloor {
         this.rooms = rooms;
     }
 
-    public Person getTenant() {
+    public Tenant getTenant() {
         return tenant;
     }
 
-    public void setTenant(Person tenant) {
+    public void setTenant(Tenant tenant) {
         this.tenant = tenant;
         // TODO: Add the apartment to the tenant's list of apartments
     }
@@ -33,5 +35,9 @@ public class Apartment extends BuildingFloor {
 
     public void removeTenant() {
         tenant = null;
+    }
+
+    public void addOwner( Owner owner) {
+        this.owner = owner;
     }
 }

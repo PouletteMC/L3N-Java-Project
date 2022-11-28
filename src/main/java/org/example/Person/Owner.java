@@ -29,8 +29,10 @@ public class Owner extends Person {
         System.arraycopy(residences, 0, newResidences, 0, residences.length);
         newResidences[newResidences.length - 1] = residence;
         residences = newResidences;
+        residence.addOwner(this);
     }
 
+    
     public void removeResidence(Residence residence) {
         Residence[] newResidences = new Residence[residences.length - 1];
         int index = 0;
