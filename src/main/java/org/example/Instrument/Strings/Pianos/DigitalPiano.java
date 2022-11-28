@@ -23,4 +23,10 @@ public class DigitalPiano extends Piano {
     public int getSamplingRate() {
         return samplingRate;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " est un piano  numérique. \n Possède un clavier lourd : " + heavy +
+                " \n Qualité d'échantillonage : " + samplingRate;
+    }
 }

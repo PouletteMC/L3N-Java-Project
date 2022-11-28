@@ -29,4 +29,10 @@ public class StraightPiano extends Piano {
     public boolean hasCrossedStrings() {
         return crossedStrings;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +"StraightPiano est un piano droit.\n Possède un sliencieux : " + silenced +
+                " Possède des cordes croisées : " + crossedStrings;
+    }
 }

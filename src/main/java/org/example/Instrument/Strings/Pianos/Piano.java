@@ -22,4 +22,9 @@ public abstract class Piano extends Strings {
     public void setStrings( int Strings ) {
         this.Strings = Strings;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " qui possède "+ Strings + " cordes";
+    }
 }

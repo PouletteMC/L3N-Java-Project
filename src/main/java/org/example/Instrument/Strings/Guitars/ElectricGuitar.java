@@ -22,7 +22,7 @@ public class ElectricGuitar extends Strings {
 
     @Override
     public String toString() {
-        return " Possède un amplificateur : " + amplifier +
-                " Possède des pédales d'effets sonores : " + pedals;
+        return super.toString() + "de type guitare. \nPossède un amplificateur : " + amplifier +
+                " \n Possède des pédales d'effets sonores : " + pedals;
     }
 }

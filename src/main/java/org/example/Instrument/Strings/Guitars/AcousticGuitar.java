@@ -22,7 +22,7 @@ public class AcousticGuitar extends Strings {
 
     @Override
     public String toString() {
-        return super.toString() + " pour droitier : " + rightHanded +
-                " nombres de tirants : " + pull;
+        return super.toString() + "de type guitare. \n Pour droitier : " + rightHanded +
+                " \n Nombres de tirants : " + pull;
     }
 }
