@@ -2,6 +2,8 @@
 
 This is a project for the L3N Java course at EFREI Paris.
 
+![TeamCity build status](https://city.lostanddead.co.uk/app/rest/builds/buildType:id:Poulette_L3nJavaProject_Build/statusIcon.svg)
+
 ## Requirements
 
 ### Mandatory
@@ -45,6 +47,5 @@ mvn exec:java
 ```bash
 java -jar target/real-estate-1.0-SNAPSHOT.jar
 ```
-
 
 ## How to use
