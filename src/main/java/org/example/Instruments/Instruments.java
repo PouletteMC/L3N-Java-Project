@@ -34,14 +34,12 @@ public abstract class Instruments implements GlobalMethods {
         return this; // Allow method chaining
     }
 
-    public Instruments setPurchasePrice(int purchasePrice) {
+    public void setPurchasePrice(int purchasePrice) {
         this.purchasePrice = purchasePrice;
-        return this; // Allow method chaining
     }
 
-    public Instruments setSellingPrice(int sellingPrice) {
+    public void setSellingPrice(int sellingPrice) {
         this.sellingPrice = sellingPrice;
-        return this; // Allow method chaining
     }
 
     public abstract String toString(); // Forces subclasses to implement this method

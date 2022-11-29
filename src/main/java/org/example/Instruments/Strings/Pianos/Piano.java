@@ -8,4 +8,5 @@ public interface Piano extends Strings {
 
     int getStrings();
     int getKeys();
+
 }
