@@ -1,6 +1,8 @@
 package org.example.Person;
 
-public abstract class Person {
+import org.example.GlobalMethods;
+
+public abstract class Person implements GlobalMethods {
     private final String name;
     private final String surname;
     private final int age;
@@ -21,10 +23,5 @@ public abstract class Person {
 
     public int getAge() {
         return age;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" + "name=" + name + ", surname=" + surname + '}';
     }
 }
