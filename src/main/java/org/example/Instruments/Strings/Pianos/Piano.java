@@ -2,24 +2,10 @@ package org.example.Instruments.Strings.Pianos;
 
 import org.example.Instruments.Strings.Strings;
 
-public abstract class Piano extends Strings {
-    private int Strings;
+public interface Piano extends Strings {
+    int Strings = 88;
+    int Keys = 88;
 
-    public Piano( String name, int purchasePrice, int sellingPrice, int length, int width, int Strings) {
-        super(name, purchasePrice, sellingPrice, length, width);
-        this.Strings = Strings;
-    }
-
-    public Piano( String name, int purchasePrice, int sellingPrice, int length, int width) {
-        super(name, purchasePrice, sellingPrice, length, width);
-        this.Strings = 88;
-    }
-
-    public int getStrings() {
-        return Strings;
-    }
-
-    public void setStrings( int Strings ) {
-        this.Strings = Strings;
-    }
+    int getStrings();
+    int getKeys();
 }

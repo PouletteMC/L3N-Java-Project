@@ -1,15 +1,20 @@
 package org.example.Instruments.Strings.Guitars;
 
+import org.example.Instruments.Instruments;
 import org.example.Instruments.Strings.Strings;
 
-public class AcousticGuitar extends Strings {
+public class AcousticGuitar extends Instruments implements Strings {
     private final boolean rightHanded;
     private final int pull;
+    private final int length;
+    private final int width;
 
-    public AcousticGuitar( int purchasePrice, int sellingPrice, int length, int width, boolean rightHanded, int pull) {
-        super("Guitare acoustique", purchasePrice, sellingPrice, length, width);
+    public AcousticGuitar(String name, int purchasePrice, int sellingPrice, boolean rightHanded, int pull, int length, int width) {
+        super(name, purchasePrice, sellingPrice);
         this.rightHanded = rightHanded;
         this.pull = pull;
+        this.length = length;
+        this.width = width;
     }
 
     public boolean isRightHanded() {
@@ -22,7 +27,15 @@ public class AcousticGuitar extends Strings {
 
     @Override
     public String toString() {
-        return super.toString() + "de type guitare. \n Pour droitier : " + rightHanded +
-                " \n Nombres de tirants : " + pull;
+        // TODO: Implement this method
+        return null;
+    }
+    @Override
+    public int getLength() {
+        return length;
+    }
+    @Override
+    public int getWidth() {
+        return width;
     }
 }

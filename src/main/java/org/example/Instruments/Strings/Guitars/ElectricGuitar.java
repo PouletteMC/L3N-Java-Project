@@ -1,16 +1,23 @@
 package org.example.Instruments.Strings.Guitars;
 
+import org.example.Instruments.Instruments;
 import org.example.Instruments.Strings.Strings;
 
-public class ElectricGuitar extends Strings {
+public class ElectricGuitar extends Instruments implements Strings {
     private final boolean amplifier;
     private final boolean pedals;
 
-    public ElectricGuitar(int purchasePrice, int sellingPrice, int length, int width, boolean amplifier, boolean pedals) {
-        super("Guitare éléctrique", purchasePrice, sellingPrice, length, width);
+    private final int length;
+    private final int width;
+
+    public ElectricGuitar(String name, int purchasePrice, int sellingPrice, boolean amplifier, boolean pedals, int length, int width) {
+        super(name, purchasePrice, sellingPrice);
         this.amplifier = amplifier;
         this.pedals = pedals;
+        this.length = length;
+        this.width = width;
     }
+
 
     public boolean hasAmplifier() {
         return amplifier;
@@ -22,7 +29,16 @@ public class ElectricGuitar extends Strings {
 
     @Override
     public String toString() {
-        return super.toString() + "de type guitare. \nPossède un amplificateur : " + amplifier +
-                " \n Possède des pédales d'effets sonores : " + pedals;
+        return null;
+    }
+
+    @Override
+    public int getLength() {
+        return length;
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
     }
 }

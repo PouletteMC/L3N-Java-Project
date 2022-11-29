@@ -1,46 +1,45 @@
 package org.example.Instruments.Strings.Pianos;
 
 public class StraightPiano extends Piano {
-    // We assume that the Piano can be silenced after the fact
-    private boolean silenced;
-    // We assume that the string cannot be crossed after the fact, so the parameter is final
-    private final boolean crossedStrings;
+    private boolean silenced;     // We assume that the Piano can be silenced after the fact
+    private final boolean crossedStrings; // We assume that the strings cannot be crossed after the fact, so the parameter is final
+    private final int strings;    // We assume that the number of strings cannot be changed after the fact, so the parameter is final
+    private final int keys;       // We assume that the number of keys cannot be changed after the fact, so the parameter is final
 
-    public StraightPiano(String name, int purchasePrice, int sellingPrice, int length, int width, int Strings, boolean silenced, boolean crossedStrings) {
-        super(name, purchasePrice, sellingPrice, length, width, Strings);
+    public StraightPiano(boolean silenced, boolean crossedStrings, int strings, int keys) {
         this.silenced = silenced;
         this.crossedStrings = crossedStrings;
+        this.strings = strings;
+        this.keys = keys;
     }
 
-    public StraightPiano(String name, int purchasePrice, int sellingPrice, int length, int width, boolean silenced, boolean crossedStrings) {
-        super(name, purchasePrice, sellingPrice, length, width);
-        this.silenced = silenced;
-        this.crossedStrings = crossedStrings;
-    }
-
-    public boolean isSilenced() {
+    public boolean getSilenced() {
         return silenced;
     }
 
-    public void setSilenced( boolean silenced ) {
+    public void setSilenced(boolean silenced) {
         this.silenced = silenced;
     }
 
-    public boolean hasCrossedStrings() {
+    public boolean getCrossedStrings() {
         return crossedStrings;
     }
 
-    @Override
+    public int getStrings() {
+        return strings;
+    }
+
+    public int getKeys() {
+        return keys;
+    }
+
     public String toString() {
         return "StraightPiano{" +
                 "silenced=" + silenced +
                 ", crossedStrings=" + crossedStrings +
-                ", Strings=" + getStrings() +
-                ", name='" + getName() + '\'' +
-                ", purchasePrice=" + getPurchasePrice() +
-                ", sellingPrice=" + getSellingPrice() +
-                ", length=" + getLength() +
-                ", width=" + getWidth() +
+                ", strings=" + strings +
+                ", keys=" + keys +
                 '}';
     }
+
 }

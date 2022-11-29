@@ -95,6 +95,20 @@ public class Bar extends Buildings {
         return name + "has a capacity of " + capacity + " people and is located at " + address + "." + " The minimum age is " + minAge + " and the music style is " + Arrays.toString(musicStyle) + "." + " The staff is comprised of " + Arrays.toString(staff) + ".";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bar bar = (Bar) o;
+        return capacity == bar.capacity && minAge == bar.minAge && name.equals(bar.name) && Arrays.equals(musicStyle, bar.musicStyle) && Arrays.equals(staff, bar.staff);
+    }
+
+    @Override
+    public double getTax() {
+        if(capacity >= 100) return rateA * area;
+        return rateB * area;
+    }
+
     public void addStaff(Resident resident) {
         Resident[] newStaff = new Resident[staff.length + 1];
         System.arraycopy(staff, 0, newStaff, 0, staff.length);
