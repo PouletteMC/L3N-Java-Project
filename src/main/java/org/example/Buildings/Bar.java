@@ -103,7 +103,6 @@ public class Bar extends Buildings {
         return capacity == bar.capacity && minAge == bar.minAge && name.equals(bar.name) && Arrays.equals(musicStyle, bar.musicStyle) && Arrays.equals(staff, bar.staff);
     }
 
-    @Override
     public double getTax() {
         if(capacity >= 100) return rateA * area;
         return rateB * area;
