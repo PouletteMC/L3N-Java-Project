@@ -23,7 +23,7 @@ public class DigitalPiano extends Instruments implements Piano {
     private final int length;
     private final int width;
 
-    public DigitalPiano(String name, int purchasePrice, int sellingPrice, SamplingRate samplingRate, int keys, int strings, boolean heavy, int length, int width) {
+    public DigitalPiano(String name, int purchasePrice, int sellingPrice, SamplingRate samplingRate, boolean heavy, int length, int width,  int keys, int strings) {
         super(name, purchasePrice, sellingPrice);
         this.samplingRate = samplingRate.getValue();
         this.keys = keys;
@@ -33,7 +33,7 @@ public class DigitalPiano extends Instruments implements Piano {
         this.width = width;
     }
 
-    public DigitalPiano(String name, int purchasePrice, int sellingPrice, SamplingRate samplingRate, int keys, boolean heavy, int length, int width) {
+    public DigitalPiano(String name, int purchasePrice, int sellingPrice, SamplingRate samplingRate, boolean heavy, int length, int width,  int keys) {
         super(name, purchasePrice, sellingPrice);
         this.samplingRate = samplingRate.getValue();
         this.keys = keys;
@@ -64,6 +64,13 @@ public class DigitalPiano extends Instruments implements Piano {
         return strings;
     }
 
+    public int getLength() {
+        return length;
+    }
+    public int getWidth() {
+        return width;
+    }
+
     public boolean isHeavy() {
         return heavy;
     }
@@ -76,19 +83,15 @@ public class DigitalPiano extends Instruments implements Piano {
     public String toString() {
         return "DigitalPiano{" +
                 "name='" + getName() + '\'' +
-                ", purchasePrice=" + getPurchasePrice() +
                 ", sellingPrice=" + getSellingPrice() +
-                ", profit=" + getProfit() +
+                ", dimensions=" + String.format("%d x %d", getLength(), getWidth()) +
                 ", samplingRate=" + samplingRate +
                 ", keys=" + keys +
                 ", strings=" + strings +
                 ", heavy=" + heavy +
                 '}';
-    }
-    public int getLength() {
-        return length;
-    }
-    public int getWidth() {
-        return width;
-    }
+
+        // Sample output of toString() method
+        // DigitalPiano{name='Yamaha P-125', purchasePrice=500, sellingPrice=600, dimensions=1200x400, samplingRate=2, keys=88, strings=88, heavy=false}
+         }
 }
