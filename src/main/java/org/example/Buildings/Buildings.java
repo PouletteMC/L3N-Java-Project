@@ -3,13 +3,13 @@ package org.example.Buildings;
 import org.example.GlobalMethods;
 import org.example.Person.Resident;
 
-interface Methods {
+interface Taxes {
     double rateA = 5.6;
     double rateB = 1.5;
     double getTax();
 }
 
-public abstract class Buildings implements Methods, GlobalMethods {
+public abstract class Buildings implements GlobalMethods, Taxes {
 
     protected  int area; // in square meters
     protected Resident resident; // resident of the building
