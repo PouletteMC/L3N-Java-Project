@@ -69,10 +69,13 @@ public class StraightPiano extends Instruments implements Piano {
 
     public String toString() {
         return "StraightPiano{" +
-                "silenced=" + silenced +
-                ", crossedStrings=" + crossedStrings +
-                ", strings=" + strings +
+                "name='" + getName() + '\'' +
+                ", sellingPrice=" + getSellingPrice() +
+                ", dimensions=" + String.format("%d x %d", getLength(), getWidth()) +
                 ", keys=" + keys +
+                ", strings=" + strings +
+                ", silenced=" + silenced +
+                ", crossedStrings=" + crossedStrings +
                 '}';
     }
 }

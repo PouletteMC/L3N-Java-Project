@@ -27,8 +27,12 @@ public class AcousticGuitar extends Instruments implements Strings {
 
     @Override
     public String toString() {
-        // TODO: Implement this method
-        return null;
+        return "AcousticGuitar{" +
+                "pull=" + pull +
+                ", rightHanded=" + rightHanded +
+                ", length=" + length +
+                ", width=" + width +
+                '}';
     }
     @Override
     public int getLength() {

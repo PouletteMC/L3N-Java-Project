@@ -29,7 +29,12 @@ public class ElectricGuitar extends Instruments implements Strings {
 
     @Override
     public String toString() {
-        return null;
+        return "ElectricGuitar{" +
+                "amplifier=" + amplifier +
+                ", pedals=" + pedals +
+                ", length=" + length +
+                ", width=" + width +
+                '}';
     }
 
     @Override
