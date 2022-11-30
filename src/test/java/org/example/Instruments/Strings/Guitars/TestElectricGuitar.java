@@ -1,39 +1,25 @@
-//package org.example.Instruments.Strings.Guitars;
-//import org.junit.jupiter.api.*;
-//
-//public class TestElectricGuitar {
-//    @Test
-//    public void hasAmplifier() {
-//        ElectricGuitar electricGuitar = new ElectricGuitar(, 2000, 100, 50, true,  true);
-//
-//        Assertions.assertTrue(electricGuitar.hasAmplifier());
-//        Assertions.assertEquals(1000, electricGuitar.getPurchasePrice());
-//        Assertions.assertEquals(2000, electricGuitar.getSellingPrice());
-//        Assertions.assertEquals(1000, electricGuitar.getProfit());
-//
-//        electricGuitar.setPurchasePrice(2000);
-//        electricGuitar.setSellingPrice(3000);
-//        Assertions.assertEquals(2000, electricGuitar.getPurchasePrice());
-//        Assertions.assertEquals(3000, electricGuitar.getSellingPrice());
-//        Assertions.assertEquals(1000, electricGuitar.getProfit());
-//
-//    }
-//
-//    @Test
-//    public void hasPedals() {
-//        ElectricGuitar electricGuitar = new ElectricGuitar(1000, 2000, 100, 50, true,  true);
-//        Assertions.assertTrue(electricGuitar.hasPedals());
-//    }
-//
-//    @Test
-//    public void hasNoAmplifier() {
-//        ElectricGuitar electricGuitar = new ElectricGuitar(1000, 2000, 100, 50, true,  true);
-//        Assertions.assertFalse(electricGuitar.hasAmplifier());
-//    }
-//
-//    @Test
-//    public void hasNoPedals() {
-//        ElectricGuitar electricGuitar = new ElectricGuitar(1000, 2000, 100, 50, true,  true);
-//        Assertions.assertFalse(electricGuitar.hasPedals());
-//    }
-//}
+package org.example.Instruments.Strings.Guitars;
+import org.junit.jupiter.api.*;
+
+public class TestElectricGuitar {
+
+    @Test
+    @DisplayName("Create a new ElectricGuitar and check the getters")
+    public void testElectricGuitar() {
+        ElectricGuitar electricGuitar = new ElectricGuitar("Electric Guitar", 1000, 2000, true, true, 100, 50);
+        Assertions.assertEquals("Electric Guitar", electricGuitar.getName());
+        Assertions.assertEquals(1000, electricGuitar.getPurchasePrice());
+        Assertions.assertEquals(2000, electricGuitar.getSellingPrice());
+        Assertions.assertTrue(electricGuitar.hasAmplifier());
+        Assertions.assertTrue(electricGuitar.hasPedals());
+        Assertions.assertEquals(100, electricGuitar.getLength());
+        Assertions.assertEquals(50, electricGuitar.getWidth());
+    }
+
+    @Test
+    @DisplayName("The toString method returns the correct string")
+    public void TestToString() {
+        ElectricGuitar electricGuitar = new ElectricGuitar("Electric Guitar", 1000, 2000, true, true, 100, 50);
+        Assertions.assertEquals("ElectricGuitar{amplifier=true, pedals=true, length=100, width=50}", electricGuitar.toString());
+    }
+}
