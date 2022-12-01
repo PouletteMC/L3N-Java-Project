@@ -4,7 +4,7 @@ import java.awt.*;
 public class UI {
     private JFrame frame;
     public UI() {
-        frame = new JFrame("Hello, World!");
+        frame = new JFrame("Mele Mele island");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
         frame.setLayout(new FlowLayout());

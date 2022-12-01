@@ -2,50 +2,20 @@
 
 This is a project for the L3N Java course at EFREI Paris.
 
-![TeamCity build status](https://city.lostanddead.co.uk/app/rest/builds/buildType:id:Poulette_L3nJavaProject_Build/statusIcon.svg)
+![TeamCity build status](https://city.lostanddead.co.uk/app/rest/builds/buildType:id:Poulette_L3nJavaProject_Build/statusIcon.svg) ![TeamCity build status](https://city.lostanddead.co.uk/app/rest/builds/buildType:id:Poulette_L3nJavaProject_Test/statusIcon.svg)
 
-## Requirements
+## Initial setup
 
-### Mandatory
+If you're using IntelliJ IDEA, you can import the project by opening the `pom.xml` file.
 
-- Java 8
+If nothing happens, open the "maven" tab on the right, right-click on the project and select "Download sources and documentation".
 
-### Optional
+## Testing
 
-- Maven 3.6.3 or higher (to build the project)
-- Install the dependencies defined in the `pom.xml` file (Maven will do it for you)
+This project uses JUnit 5. You can run the tests by right-clicking on the `src/test/java` folder and selecting "Run 'All Tests'" or by running the "test" script in the maven tab.
 
-## How to build
+All the test are in the `src/test/java` folder.
 
-### Using Maven
+## Building
 
-```bash
-mvn clean package
-```
-
-### Using the IDE
-
-- Open the project in your IDE (We used IntelliJ IDEA)
-- Install the dependencies defined in the `pom.xml` file
-- Build the project with <kbd>F7</kbd>
-
-## How to run
-
-### Using Maven
-
-```bash
-mvn exec:java
-```
-
-### Using the IDE
-
-- Open the project in your IDE (We used IntelliJ IDEA)
-- run with <kbd>F5</kbd>
-
-### Using the JAR
-
-```bash
-java -jar target/real-estate-1.0-SNAPSHOT.jar
-```
-
-## How to use
+You can build the project by running the "package" script in the maven tab. The output will be in the `target` folder.
