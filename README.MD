@@ -2,7 +2,7 @@
 
 This is a project for the L3N Java course at EFREI Paris.
 
-![TeamCity build status](https://city.lostanddead.co.uk/app/rest/builds/buildType:id:Poulette_L3nJavaProject_Build/statusIcon.svg) ![TeamCity build status](https://city.lostanddead.co.uk/app/rest/builds/buildType:id:Poulette_L3nJavaProject_Test/statusIcon.svg)
+![TeamCity build status](https://city.lostanddead.co.uk/app/rest/builds/buildType:id:Poulette_L3nJavaProject_Build/statusIcon.svg)
 
 ## Initial setup
 
