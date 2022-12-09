@@ -1,7 +1,5 @@
 package org.example.Instruments;
 
-import org.example.GlobalMethods;
-
 /**
  * This is the parent class of all instruments
  * @Param: name
@@ -13,7 +11,7 @@ import org.example.GlobalMethods;
  * @Method: getProfit() - returns the profit of the instrument
  */
 
-public abstract class Instruments implements GlobalMethods {
+public abstract class Instruments {
     private String name;
     private int purchasePrice;
     private int sellingPrice;

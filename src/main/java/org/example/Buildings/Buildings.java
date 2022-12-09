@@ -1,6 +1,5 @@
 package org.example.Buildings;
 
-import org.example.GlobalMethods;
 import org.example.Person.Resident;
 
 interface Taxes {
@@ -9,7 +8,7 @@ interface Taxes {
     double getTax();
 }
 
-public abstract class Buildings implements GlobalMethods, Taxes {
+public abstract class Buildings implements Taxes {
 
     protected  int area; // in square meters
     protected Resident resident; // resident of the building

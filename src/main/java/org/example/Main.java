@@ -22,6 +22,7 @@ public class Main {
                 System.out.println("The address will be " + tower1Address + ".");
                 System.out.println("How many elevators should the tower have?");
                 int tower1Elevators;
+                boolean accepted = false;
                 do {
                         while (!sc.hasNextInt()) {
                                 System.out.println("That's not a number!");

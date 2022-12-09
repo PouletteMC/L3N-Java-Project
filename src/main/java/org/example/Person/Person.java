@@ -1,8 +1,6 @@
 package org.example.Person;
 
-import org.example.GlobalMethods;
-
-public abstract class Person implements GlobalMethods {
+public abstract class Person {
     private final String name;
     private final String surname;
     private final int age;
