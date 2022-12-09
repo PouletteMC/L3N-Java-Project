@@ -2,6 +2,8 @@ package org.example.Buildings;
 
 import org.example.Person.Tourist;
 
+import java.util.ArrayList;
+
 public class Hotel extends Buildings {
 
     //    Required fields
@@ -14,6 +16,7 @@ public class Hotel extends Buildings {
     private int restaurants;
     private Bar bar;
     private String name;
+
 
     public Hotel(String name, int area, String address, int rooms, int floors, int stars, int pools, int spas) {
         super(area, address);
@@ -114,16 +117,4 @@ public class Hotel extends Buildings {
 
 }
 
-class Room {
 
-    private int number;
-    private Tourist occupant;
-    private boolean isOccupied;
-    private static int roomCount = 0;
-    private static int occupied = 0;
-    private static int unoccupied = 0;
-
-
-
-
-}

@@ -9,26 +9,34 @@ public class Tower extends Buildings {
     private int elevators;
     private int apartments;
     private int offices;
-    private Person[] residents;
+    private Resident[] residents;
     private String name;
 
 
-    public Tower(String name, int elevators, int apartments, int offices, int area, String address) {
-        super(area, address);
+    public Tower(String name, int apartments, int offices, String address) {
+        super(apartments * 50 + offices * 200, address);
         this.name = name;
-        this.floors = apartments/2 + offices/2;
-        this.elevators = elevators;
+        this.floors = apartments/4 + offices;
         this.apartments = apartments;
         this.offices = offices;
+        if( this.floors < 10) {
+            this.elevators = 1;
+        } else {
+            this.elevators = this.floors/10;
+        }
     }
 
-    public Tower(String name, int elevators, int apartments, int offices, int area, String address, Resident resident) {
-        super(area, address, resident);
+    public Tower(String name, int apartments, int offices, String address, Resident resident) {
+        super(apartments * 50 + offices * 100, address, resident);
         this.name = name;
-        this.floors = apartments/2 + offices/2;
-        this.elevators = elevators;
+        this.floors = apartments/4 + offices;
         this.apartments = apartments;
         this.offices = offices;
+        if( this.floors < 10) {
+            this.elevators = 1;
+        } else {
+            this.elevators = this.floors/10;
+        }
     }
 
     public int getFloors() {
@@ -67,7 +75,7 @@ public class Tower extends Buildings {
         this.offices = offices;
     }
 
-    public void setResidents(Person[] residents) {
+    public void setResidents(Resident[] residents) {
         this.residents = residents;
     }
 
@@ -103,7 +111,7 @@ public class Tower extends Buildings {
         }
     }
 
-    public void addResident(Person resident) {
+    public void addResident(Resident resident) {
         for (int i = 0; i < residents.length; i++) {
             if (residents[i] == null) {
                 residents[i] = resident;
@@ -112,7 +120,7 @@ public class Tower extends Buildings {
         }
     }
 
-    public void removeResident(Person resident) {
+    public void removeResident(Resident resident) {
         for (int i = 0; i < residents.length; i++) {
             if (residents[i] == resident) {
                 residents[i] = null;

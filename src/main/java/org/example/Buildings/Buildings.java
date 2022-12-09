@@ -1,18 +1,13 @@
 package org.example.Buildings;
-
 import org.example.Person.Resident;
 
-interface Taxes {
-    double rateA = 5.6;
-    double rateB = 1.5;
-    double getTax();
-}
-
-public abstract class Buildings implements Taxes {
+public abstract class Buildings {
 
     protected  int area; // in square meters
     protected Resident resident; // resident of the building
     protected String address; // street address
+    protected double rateA = 5.6;
+    protected double rateB = 1.5;
 
     public Buildings(int area, String address) {
         this.area = area; // Set the area
@@ -48,4 +43,6 @@ public abstract class Buildings implements Taxes {
     public void setOwner(Resident resident) {
         this.resident = resident; // Set the resident
     }
+
+    abstract double getTax();
 }

@@ -20,23 +20,6 @@ public class Main {
                 System.out.println("What should the address be?");
                 String tower1Address = sc.nextLine();
                 System.out.println("The address will be " + tower1Address + ".");
-                System.out.println("How many elevators should the tower have?");
-                int tower1Elevators;
-                boolean accepted = false;
-                do {
-                        while (!sc.hasNextInt()) {
-                                System.out.println("That's not a number!");
-                                sc.next();
-                        }
-                        tower1Elevators = sc.nextInt();
-                        if (tower1Elevators < 0) {
-                                System.out.println("The number of elevators cannot be negative!");
-                        } else {
-                                System.out.println("The tower will have " + tower1Elevators + " elevators.");
-                                break;
-                        }
-                } while (true);
-
                 int tower1Offices;
                 do {
                         System.out.println("How many offices should the tower have?");
@@ -45,18 +28,11 @@ public class Main {
                                 sc.next();
                         }
                         tower1Offices = sc.nextInt();
-                        if (tower1Offices < 0) {
-                                System.out.println("The number of offices cannot be negative!");
-                        } else {
-                                System.out.println("The tower will have " + tower1Offices + " offices.");
-                                break;
-                        }
-                } while (true);
+                } while ( tower1Offices > 10 || tower1Offices < 0);
 
                 int tower1Apartments = 10;
-                int tower1Area = 1000;
 
-                Tower tower1 = new Tower(tower1Name, tower1Elevators, tower1Apartments, tower1Offices, tower1Area, tower1Address);
+                Tower tower1 = new Tower(tower1Name, tower1Apartments, tower1Offices, tower1Address);
                 System.out.println(tower1);
                 sc.close();
         }
