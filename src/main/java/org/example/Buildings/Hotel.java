@@ -10,7 +10,7 @@ public class Hotel extends Buildings {
     private int stars;
     private int pools;
     private int spas;
-    //    Additional fields
+    // Additional fields
     private int restaurants;
     private Bar bar;
     private String name;
@@ -122,6 +122,7 @@ class Room {
     private static int roomCount = 0;
     private static int occupied = 0;
     private static int unoccupied = 0;
+
 
 
 

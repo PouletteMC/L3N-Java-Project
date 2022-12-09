@@ -11,13 +11,13 @@ public class Oboe extends Instruments implements Woodwinds{
     }
 
     public String toString() {
-        // TODO: Implement this method
-        return null;
+        return "Oboe{" +
+                "type='" + type + '\'' +
+                '}';
     }
 
     public String getType() {
-        // TODO: Implement this method
-        return null;
+        return type;
     }
 
 }

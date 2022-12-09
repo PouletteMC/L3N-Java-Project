@@ -2,6 +2,17 @@ package org.example.Instruments;
 
 import org.example.GlobalMethods;
 
+/**
+ * This is the parent class of all instruments
+ * @Param: name
+ * @Param: purchasePrice
+ * @Param: sellingPrice
+ * @Method: toString() - returns a string representation of the instrument
+ * @Method: getPurchasePrice() - returns the purchase price of the instrument
+ * @Method: getSellingPrice() - returns the selling price of the instrument
+ * @Method: getProfit() - returns the profit of the instrument
+ */
+
 public abstract class Instruments implements GlobalMethods {
     private String name;
     private int purchasePrice;

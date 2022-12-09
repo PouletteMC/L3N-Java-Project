@@ -9,12 +9,14 @@ public class Clarinet extends Instruments implements Woodwinds{
     public Clarinet(int purchasePrice, int sellingPrice){
         super("Clarinet",purchasePrice,sellingPrice);
     }
+
+    @Override
     public String toString() {
-        // TODO: Implement this method
-        return null;
+        return "Clarinet{" +
+                "type='" + type + '\'' +
+                '}';
     }
     public String getType() {
-        // TODO: Implement this method
-        return null;
+        return type;
     }
 }
