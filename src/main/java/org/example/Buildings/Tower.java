@@ -10,19 +10,22 @@ public class Tower extends Buildings {
     private int apartments;
     private int offices;
     private Person[] residents;
+    private String name;
 
 
-    public Tower(int floors, int elevators, int apartments, int offices, int area, String address) {
+    public Tower(String name, int elevators, int apartments, int offices, int area, String address) {
         super(area, address);
-        this.floors = floors;
+        this.name = name;
+        this.floors = apartments/2 + offices/2;
         this.elevators = elevators;
         this.apartments = apartments;
         this.offices = offices;
     }
 
-    public Tower(int floors, int elevators, int apartments, int offices, int area, String address, Resident resident) {
+    public Tower(String name, int elevators, int apartments, int offices, int area, String address, Resident resident) {
         super(area, address, resident);
-        this.floors = floors;
+        this.name = name;
+        this.floors = apartments/2 + offices/2;
         this.elevators = elevators;
         this.apartments = apartments;
         this.offices = offices;
@@ -74,7 +77,30 @@ public class Tower extends Buildings {
 
     @Override
     public String toString() {
-        return "This tower has: " + floors + " floors, " + elevators + " elevators, " + apartments + " apartments, " + offices + " offices, with a total area of " + area + " square meters, " + address + ".\n It is owned by " + super.getOwner() + ".\n" + " It has " + residents.length + " residents.";
+        if(this.residents == null) {
+            return "Tower{" +
+                    "name='" + name + '\'' +
+                    ", floors=" + floors +
+                    ", elevators=" + elevators +
+                    ", apartments=" + apartments +
+                    ", offices=" + offices +
+                    ", area=" + area +
+                    ", address='" + address + '\'' +
+                    ", tax=" + getTax() +
+                    '}';
+        } else {
+            return "Tower{" +
+                    "name='" + name + '\'' +
+                    ", floors=" + floors +
+                    ", elevators=" + elevators +
+                    ", apartments=" + apartments +
+                    ", offices=" + offices +
+                    ", area=" + area +
+                    ", address='" + address + '\'' +
+                    ", tax=" + getTax() +
+                    ", residents=" + residents[0].getName() +
+                    '}';
+        }
     }
 
     public void addResident(Person resident) {
