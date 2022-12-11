@@ -13,6 +13,7 @@ public class Tourist extends Person {
         return nationality;
     }
 
-
-
+    public String toString() {
+        return "Tourist: " + getName() + " " + getSurname() + ", " + getAge() + ", " + getNationality();
+    }
 }
