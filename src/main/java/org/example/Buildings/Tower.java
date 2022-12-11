@@ -79,6 +79,7 @@ public class Tower extends Buildings {
         this.residents = residents;
     }
 
+    @Override
     public double getTax() {
         return rateA * area;
     }

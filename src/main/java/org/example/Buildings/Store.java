@@ -123,6 +123,7 @@ public class Store extends Buildings{
         removeEmployee(employee);
     }
 
+    @Override
     public double getTax() {
         return rateA * area;
     }
