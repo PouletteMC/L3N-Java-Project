@@ -53,7 +53,9 @@ public class House extends Buildings {
     public void setGarage(boolean garage) {
         this.garage = garage;
     }
+
     /* Methods required by the superclass */
+    @Override
     public double getTax() {
         return rateA * area + rateB * gardenArea;
     }
