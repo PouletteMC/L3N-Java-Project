@@ -6,18 +6,18 @@ import java.util.Scanner;
 
 /**
  * @author Poulette
- * @version 0.5
+ * @version 1.2
  */
 
 public class Main {
         public static void main(String[] args) {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("Hello, welcome to Mele-Mele!");
-                System.out.println("We will create 3 towers for you.");
+                System.out.println("We will start by creating three towers");
                 System.out.println("What should we name the first tower?");
                 String tower1Name = sc.nextLine();
                 System.out.println("The first tower will be called " + tower1Name + ".");
-                System.out.println("What should the address be?");
+                System.out.println("What should its address be?");
                 String tower1Address = sc.nextLine();
                 System.out.println("The address will be " + tower1Address + ".");
                 int tower1Offices;
