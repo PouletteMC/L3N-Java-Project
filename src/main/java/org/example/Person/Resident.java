@@ -12,6 +12,7 @@ public class Resident extends Person {
 
     public Resident(String name, String surname, int age) {
         super(name, surname, age);
+        this.buildings = new Buildings[0];
     }
 
     public String getJob() {
