@@ -44,5 +44,6 @@ public abstract class Buildings {
         this.resident = resident; // Set the resident
     }
 
-    abstract double getTax();
+    public abstract double getTax();
+    public abstract String toString();
 }
