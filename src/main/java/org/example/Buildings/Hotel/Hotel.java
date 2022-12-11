@@ -5,11 +5,10 @@ import org.example.Buildings.Buildings;
 
 abstract class Hotel extends Buildings {
 
-    private int roomCount;
+    private Room[] rooms;
+    private int roomCount = rooms.length;
     private int occupiedRooms;
     private int unoccupiedRooms = roomCount - occupiedRooms;
-    private Room[] rooms;
-
     private int floors;
     private int stars;
     private int pools;
@@ -27,6 +26,16 @@ abstract class Hotel extends Buildings {
         this.pools = pools;
         this.spas = spas;
         this.bar = bar;
+        this.name = name;
+    }
+
+    public Hotel(String name, int area, String address, Room[] rooms, int floors, int stars, int pools, int spas, int restaurants) {
+        super(area, address);
+        this.rooms = rooms;
+        this.floors = floors;
+        this.stars = stars;
+        this.pools = pools;
+        this.spas = spas;
         this.name = name;
     }
 
@@ -49,7 +58,6 @@ abstract class Hotel extends Buildings {
     public int getSpas() {
         return spas;
     }
-
 
     public Bar getBars() {
         return bar;
@@ -79,7 +87,6 @@ abstract class Hotel extends Buildings {
         this.spas = spas;
     }
 
-
     public void setBars(Bar bar) {
         this.bar = bar;
     }
@@ -92,11 +99,10 @@ abstract class Hotel extends Buildings {
     public double getTax() {
         return rateA * area;
     }
-    @Override
-    public String toString() {
-        return name + " has " + rooms + " rooms, " + floors + " floors, " + stars + " stars, " + pools + " pools, " + spas + " spas, " + bar + " bar, " + " and is located at " + getAddress() + "." + " The tax is " + getTax() + ".";
-    }
 
+    public String getData() {
+        return "rooms=" + rooms + ", floors=" + floors + ", stars=" + stars + ", pools=" + pools + ", spas=" + spas + ", bar=" + bar + ", name=" + name;
+    }
 }
 
 
