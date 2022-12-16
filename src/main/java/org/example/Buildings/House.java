@@ -2,6 +2,10 @@ package org.example.Buildings;
 
 import org.example.Person.Resident;
 
+/**
+ * @author Eliot, Adam, Laura, Sebastian
+ * @version 1.0
+ */
 public class House extends Buildings {
     /* Parameters */
     private int gardenArea; // in square meters

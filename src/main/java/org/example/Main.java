@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * @author Poulette
- * @version 1.2
+ * @author Eliot, Adam, Laura, Sebastian
+ * @version 1.5
  */
 
 public class Main {
@@ -25,14 +25,7 @@ public class Main {
 
 
 
-
-
-
-
-
-
-
-        private static House createHouse(Scanner sc) {
+        private static @NotNull House createHouse(Scanner sc) {
                 String houseAddress = getString(sc, "Please enter the address of the house");
                 System.out.println("The address will be " + houseAddress + ".");
 
@@ -57,7 +50,7 @@ public class Main {
                 return house;
         }
 
-        private static Tower createTower(@NotNull Scanner sc, int floors, int apartments) {
+        private static @NotNull Tower createTower(@NotNull Scanner sc, int floors, int apartments) {
                 String towerName = getString(sc, "What is the name of the tower?");
                 System.out.println("The first tower will be called " + towerName + ".");
 
@@ -73,10 +66,13 @@ public class Main {
         }
 
 
-
-
-
-
+        /**
+         * @param sc The scanner to use
+         * @param message The message to display
+         * @param min The minimum value
+         * @param max The maximum value
+         * @return The number entered by the user
+         */
         private static int getNumber(@NotNull Scanner sc, String message, int min, int max) {
                 int number;
                 do {
@@ -94,7 +90,11 @@ public class Main {
                 return number;
         }
 
-
+        /**
+         * @param sc The scanner to use
+         * @param message The message to display
+         * @return The boolean entered by the user
+         */
         private static boolean getBoolean(@NotNull Scanner sc, String message) {
                 boolean bool;
                 do {
@@ -108,6 +108,12 @@ public class Main {
                 return bool;
         }
 
+
+        /**
+         * @param sc The scanner to use
+         * @param message The message to display
+         * @return The string entered by the user
+         */
         private static String getString(@NotNull Scanner sc, String message) {
                 String string;
                 do {
@@ -121,6 +127,13 @@ public class Main {
                 return string;
         }
 
+
+        /**
+         * @param sc The scanner to use
+         * @param message The message to display
+         * @param options The options to choose from
+         * @return The string chosen by the user
+         */
         private static String getStringWithOptions(@NotNull Scanner sc, String message, String[] options) {
                 String string;
                 do {
