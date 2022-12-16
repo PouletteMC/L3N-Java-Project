@@ -39,6 +39,9 @@ public class Tower extends Buildings {
         }
     }
 
+    public String getName() {
+        return name;
+    }
     public int getFloors() {
         return floors;
     }
