@@ -29,6 +29,15 @@ abstract class Hotel extends Buildings {
         this.name = name;
     }
 
+    public Hotel(String name, int area, String address, int floors, int stars, int pools, int spas, int restaurants) {
+        super(area, address);
+        this.floors = floors;
+        this.stars = stars;
+        this.pools = pools;
+        this.spas = spas;
+        this.name = name;
+        this.rooms = new Room[0];
+    }
     public Hotel(String name, int area, String address, Room[] rooms, int floors, int stars, int pools, int spas, int restaurants) {
         super(area, address);
         this.rooms = rooms;
