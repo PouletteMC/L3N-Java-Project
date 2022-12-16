@@ -1,8 +1,11 @@
 package org.example;
 
 import org.example.Buildings.*;
+import org.example.Person.*;
+
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -12,55 +15,83 @@ import java.util.Scanner;
  */
 
 public class Main {
-        public static void main(String[] args) {
-                Scanner sc = new Scanner(System.in);
-                System.out.println("Hello, welcome to Mele-Mele!");
-                System.out.println("We will start by creating three towers");
 
-                System.out.println("Now we will create five houses");
-                for (int i = 0; i < 5; i++) {
-                        createHouse(sc);
-                }
+        private static final Scanner scanner = new Scanner(System.in);
+        private static final ArrayList<House> houses = new ArrayList<>();
+        private static final ArrayList<Tower> towers = new ArrayList<>();
+        private static final ArrayList<Resident> residents = new ArrayList<>();
+        private static final ArrayList<Tourist> tourists = new ArrayList<>();
+        private static final ArrayList<Tenant> tenants = new ArrayList<>();
+
+        // TODO: Add hotels
+//        private static ArrayList<Hotel> hotels = new ArrayList<>();
+
+
+
+        public static void main(String[] args) {
+                System.out.println("Hello, welcome to Mele-Mele!");
+                System.out.println("Please enter your name:");
+                String userName = scanner.nextLine();
+                System.out.println("Hello " + userName);
+
+                System.out.println("We will start by creating a few towers");
+                Tower tower10_1 = createTower(10);
+                Tower tower10_2 = createTower(10);
+                Tower tower15 = createTower(15);
+
+                System.out.println("Now we will create a few houses");
+                House house1 = createHouse();
+                House house2 = createHouse();
+                House house3 = createHouse();
+                House house4 = createHouse();
+                House house5 = createHouse();
+
+                System.out.println("What would you like to do next?");
+                System.out.println("1. Display all the buildings");
+                System.out.println("2. Display all the towers");
+                System.out.println("3. Display all the houses");
         }
 
 
 
-        private static @NotNull House createHouse(Scanner sc) {
-                String houseAddress = getString(sc, "Please enter the address of the house");
+        private static @NotNull House createHouse() {
+                String houseAddress = getString("Please enter the address of the house");
                 System.out.println("The address will be " + houseAddress + ".");
 
-                int houseArea = getNumber(sc, "What is the area of the house?", 0, 1000);
+                int houseArea = getNumber(Main.scanner, "What is the area of the house?", 0, 1000);
                 System.out.println("The area will be " + houseArea + " square meters.");
 
-                int houseRooms = getNumber(sc, "How many rooms does it have?", 0, 10);
+                int houseRooms = getNumber(Main.scanner, "How many rooms does it have?", 0, 10);
                 System.out.println("The house will have " + houseRooms + " rooms.");
 
-                int houseFloors = getNumber(sc, "How many floors does it have?", 0, 3);
+                int houseFloors = getNumber(Main.scanner, "How many floors does it have?", 0, 3);
                 System.out.println("The house will have " + houseFloors + " floors.");
 
-                boolean hasGarage = getBoolean(sc, "Does it have a garage?");
-                System.out.println("The house will " + (hasGarage ? "have" : "not have") + " a garage.");
+                boolean hasGarage = getStringWithOptions("Does it have a garage?", new String[]{"yes", "no"}).equals("yes");
+                System.out.println("The house will " + (hasGarage ? "" : "not ") + "have a garage.");
 
-                boolean hasGarden = getBoolean(sc, "Does it have a garden?");
-                int houseGardenArea = hasGarden ? getNumber(sc, "What is the area of the garden?", 0, 1000) : 0;
+                boolean hasGarden = getStringWithOptions("Does it have a garden?", new String[]{"yes", "no"}).equals("yes");
+                int houseGardenArea = hasGarden ? getNumber(Main.scanner, "What is the area of the garden?", 0, 1000) : 0;
                 System.out.println("The house will " + (hasGarden ? "have a garden of " + houseGardenArea + " square meters." : "not have a garden."));
 
                 House house = new House(houseArea, houseAddress, houseGardenArea, houseRooms, houseFloors, hasGarage);
+                houses.add(house);
                 System.out.println("The house has been created.");
                 return house;
         }
 
-        private static @NotNull Tower createTower(@NotNull Scanner sc, int floors, int apartments) {
-                String towerName = getString(sc, "What is the name of the tower?");
+        private static @NotNull Tower createTower(int apartments) {
+                String towerName = getString("What is the name of the tower?");
                 System.out.println("The first tower will be called " + towerName + ".");
 
-                String towerAddress = getString(sc, "What is the address of the tower?");
+                String towerAddress = getString("What is the address of the tower?");
                 System.out.println("The address will be " + towerAddress + ".");
 
-                int towerOffices = getNumber(sc, "How many offices does it have?", 0, 100);
+                int towerOffices = getNumber(Main.scanner, "How many offices does it have?", 0, 100);
                 System.out.println("The tower will have " + towerOffices + " offices.");
 
                 Tower tower = new Tower(towerName, apartments, towerOffices, towerAddress);
+                towers.add(tower);
                 System.out.println("Created a new tower called " + tower.getName() + " with " + tower.getOffices() + " offices" + " and " + tower.getApartments() + " apartments over " + tower.getFloors() + " floors and will be located at " + tower.getAddress() + ".");
                 return tower;
         }
@@ -91,60 +122,85 @@ public class Main {
         }
 
         /**
-         * @param sc The scanner to use
-         * @param message The message to display
-         * @return The boolean entered by the user
-         */
-        private static boolean getBoolean(@NotNull Scanner sc, String message) {
-                boolean bool;
-                do {
-                        System.out.println(message);
-                        while (!sc.hasNextBoolean()) {
-                                System.out.println("This value must be true or false.");
-                                sc.next();
-                        }
-                        bool = sc.nextBoolean();
-                } while ( bool != true || bool != false);
-                return bool;
-        }
-
-
-        /**
-         * @param sc The scanner to use
          * @param message The message to display
          * @return The string entered by the user
          */
-        private static String getString(@NotNull Scanner sc, String message) {
+        private static String getString(String message) {
                 String string;
                 do {
                         System.out.println(message);
-                        while (!sc.hasNext()) {
+                        while (!Main.scanner.hasNext()) {
                                 System.out.println("This value must be a string.");
-                                sc.next();
+                                Main.scanner.next();
                         }
-                        string = sc.next();
+                        string = Main.scanner.next();
                 } while ( string == null);
                 return string;
         }
 
-
         /**
-         * @param sc The scanner to use
          * @param message The message to display
          * @param options The options to choose from
          * @return The string chosen by the user
          */
-        private static String getStringWithOptions(@NotNull Scanner sc, String message, String[] options) {
+        private static String getStringWithOptions(String message, String[] options) {
                 String string;
                 do {
                         System.out.println(message);
-                        while (!sc.hasNext()) {
+                        while (!Main.scanner.hasNext()) {
                                 System.out.println("This value must be a string.");
-                                sc.next();
+                                Main.scanner.next();
                         }
-                        string = sc.next();
+                        string = Main.scanner.next();
                 } while ( string == null || !Arrays.asList(options).contains(string));
                 return string;
         }
+
+
+
+        public static ArrayList<Tower> getTowers() {
+                return towers;
+        }
+
+        public static ArrayList<House> getHouses() {
+                return houses;
+        }
+
+        private static int displayTowerMenu(Scanner sc) {
+                System.out.println("What would you like to do?");
+                System.out.println("1. Display all the towers");
+                System.out.println("2. Display a specific tower");
+                System.out.println("3. Display the largest tower");
+                System.out.println("4. Return to the main menu");
+                return getNumber(sc, "Please enter a number between 1 and 4", 1, 4);
+        };
+        private static int displayHouseMenu(Scanner sc) {
+                System.out.println("What would you like to do?");
+                System.out.println("1. Display all the houses");
+                System.out.println("2. Display a specific house");
+                System.out.println("3. Display the largest house");
+                System.out.println("4. Return to the main menu");
+                return getNumber(sc, "Please enter a number between 1 and 4", 1, 4);
+        };
+        private static int displayBuildingMenu(Scanner sc) {
+                System.out.println("What would you like to do?");
+                System.out.println("1. Display all the buildings");
+                System.out.println("2. Display a specific building");
+                System.out.println("3. Display the largest building");
+                System.out.println("4. Return to the main menu");
+                return getNumber(sc, "Please enter a number between 1 and 4", 1, 4);
+        };
+        private static int displayMainMenu(Scanner sc) {
+                System.out.println("Please select an option:");
+                System.out.println("1. Create a new house");
+                System.out.println("2. Create a new tower");
+                System.out.println("3. Display all the houses");
+                System.out.println("4. Display all the towers");
+                return getNumber(sc, "Please enter a number between 1 and 4", 1, 4);
+        };
+
+        private static void handleTowerMenu(Scanner sc) {
+
+        };
 
 }
