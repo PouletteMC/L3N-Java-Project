@@ -1,6 +1,9 @@
 package org.example.Buildings;
 import org.example.Person.Resident;
-
+/**
+ * @author Eliot, Adam, Laura, Sebastian
+ * @version 1.0
+ */
 public abstract class Buildings {
 
     protected  int area; // in square meters
@@ -44,6 +47,13 @@ public abstract class Buildings {
         this.resident = resident; // Set the resident
     }
 
+    /**
+     * @return the tax on the building
+     */
     public abstract double getTax();
+
+    /**
+     * @return The string representation of the building
+     */
     public abstract String toString();
 }
