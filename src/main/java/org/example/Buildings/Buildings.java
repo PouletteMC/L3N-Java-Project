@@ -2,7 +2,6 @@ package org.example.Buildings;
 import org.example.Person.Resident;
 /**
  * @author Eliot, Adam, Laura, Sebastian
- * @version 1.0
  */
 public abstract class Buildings {
 
