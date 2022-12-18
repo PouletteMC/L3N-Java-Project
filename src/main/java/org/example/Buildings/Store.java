@@ -26,13 +26,19 @@ public class Store extends Buildings{
     public Store(int area, String address, Resident owner, Instruments[] instruments) {
         super(area, address, owner);
         this.instruments = instruments;
-        this.employees = null;
+        this.employees = new Resident[0];
     }
 
     public Store(int area, String address, Instruments[] instruments) {
         super(area, address);
         this.instruments = instruments;
-        this.employees = null;
+        this.employees = new Resident[0];
+    }
+
+    public Store(int area, String address){
+        super(area, address);
+        this.instruments = new Instruments[0];
+        this.employees = new Resident[0];
     }
 
     public Instruments[] getInstruments() {
@@ -67,14 +73,14 @@ public class Store extends Buildings{
         this.profit = profit;
     }
 
-    private void addInstrument(Instruments instrument) {
+    public void addInstrument(Instruments instrument) {
         Instruments[] newInstruments = new Instruments[this.instruments.length + 1];
         System.arraycopy(this.instruments, 0, newInstruments, 0, this.instruments.length);
         newInstruments[newInstruments.length - 1] = instrument;
         this.instruments = newInstruments;
     }
 
-    private void removeInstrument(Instruments instrument) {
+    public void removeInstrument(Instruments instrument) {
         Instruments[] newInstruments = new Instruments[this.instruments.length - 1];
         int index = 0;
         for (Instruments i : this.instruments) {
@@ -85,14 +91,14 @@ public class Store extends Buildings{
         this.instruments = newInstruments;
     }
 
-    private void addEmployee(Resident employee) {
+    public void addEmployee(Resident employee) {
         Resident[] newEmployees = new Resident[this.employees.length + 1];
         System.arraycopy(this.employees, 0, newEmployees, 0, this.employees.length);
         newEmployees[newEmployees.length - 1] = employee;
         this.employees = newEmployees;
     }
 
-    private void removeEmployee(Resident employee) {
+    public void removeEmployee(Resident employee) {
         Resident[] newEmployees = new Resident[this.employees.length - 1];
         int index = 0;
         for (Resident r : this.employees) {
