@@ -1,12 +1,20 @@
 package org.example;
 
 import org.example.Buildings.*;
+import org.example.Instruments.Instruments;
+import org.example.Instruments.Strings.Guitars.AcousticGuitar;
+import org.example.Instruments.Strings.Guitars.ElectricGuitar;
+import org.example.Instruments.Strings.Pianos.*;
+import org.example.Instruments.Woodwinds.Clarinet;
+import org.example.Instruments.Woodwinds.Flute;
+import org.example.Instruments.Woodwinds.Oboe;
 import org.example.Person.*;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Queue;
 import java.util.Scanner;
 
 /**
@@ -15,43 +23,65 @@ import java.util.Scanner;
  */
 
 public class Main {
-
-        private static final Scanner scanner = new Scanner(System.in);
+        private static final Scanner scanner = new Scanner(System.in).useDelimiter("\\n");
         private static final ArrayList<House> houses = new ArrayList<>();
         private static final ArrayList<Tower> towers = new ArrayList<>();
         private static final ArrayList<Resident> residents = new ArrayList<>();
         private static final ArrayList<Tourist> tourists = new ArrayList<>();
         private static final ArrayList<Tenant> tenants = new ArrayList<>();
-
         // TODO: Add hotels
-//        private static ArrayList<Hotel> hotels = new ArrayList<>();
-
-
+        // private static ArrayList<Hotel> hotels = new ArrayList<>();
 
         public static void main(String[] args) {
-                System.out.println("Hello, welcome to Mele-Mele!");
-                System.out.println("Please enter your name:");
-                String userName = scanner.nextLine();
-                System.out.println("Hello " + userName);
-
-//                System.out.println("We will start by creating a few towers");
-//                Tower tower10_1 = createTower(10);
-//                Tower tower10_2 = createTower(10);
-//                Tower tower15 = createTower(15);
+//                System.out.println("Hello, welcome to Mele-Mele!");
+//                System.out.println("We will create three towers.");
 //
-//                System.out.println("Now we will create a few houses");
+//                System.out.println("The first two will have 10 apartments.");
+//                System.out.println("Let's create the first one.");
+//                Tower tower1 = createTower(10);
+//                System.out.print("\033[H\033[2J");
+//
+//                System.out.println("Let's create the second one.");
+//                Tower tower2 = createTower(10);
+//                System.out.println("The third tower will have 15 apartments.");
+//                System.out.println("\033[H\033[2J");
+//
+//                System.out.println("Let's create the third one.");
+//                Tower tower3 = createTower(15);
+//                System.out.println("\033[H\033[2J");
+//
+//                System.out.println("We'll also create five houses.");
+//                System.out.println("Let's create the first one.");
 //                House house1 = createHouse();
+//                System.out.println("\033[H\033[2J");
+//
+//                System.out.println("Let's create the second one.");
 //                House house2 = createHouse();
+//                System.out.println("\033[H\033[2J");
+//
+//                System.out.println("Let's create the third one.");
 //                House house3 = createHouse();
+//                System.out.println("\033[H\033[2J");
+//
+//                System.out.println("Let's create the fourth one.");
 //                House house4 = createHouse();
+//                System.out.println("\033[H\033[2J");
+//
+//                System.out.println("Let's create the fifth one.");
 //                House house5 = createHouse();
+//                System.out.println("\033[H\033[2J");
 
-                handleMainMenu();
+                System.out.println("Now we'll create a music store.");
+                System.out.println("Let's create the music store.");
+                Store store = createStore();
+                System.out.println("\033[H\033[2J");
+
+                System.out.println("Now we'll add instruments to the store.");
+                System.out.println("Let's add instruments to the store.");
+                instrumentsMenu(store);
+                System.out.println("\033[H\033[2J");
 
         }
-
-
-
         private static @NotNull House createHouse() {
                 String houseAddress = getString("Please enter the address of the house");
                 System.out.println("The address will be " + houseAddress + ".");
@@ -77,7 +107,6 @@ public class Main {
                 System.out.println("The house has been created.");
                 return house;
         }
-
         private static @NotNull Tower createTower(int apartments) {
                 String towerName = getString("What is the name of the tower?");
                 System.out.println("The first tower will be called " + towerName + ".");
@@ -93,8 +122,166 @@ public class Main {
                 System.out.println("Created a new tower called " + tower.getName() + " with " + tower.getOffices() + " offices" + " and " + tower.getApartments() + " apartments over " + tower.getFloors() + " floors and will be located at " + tower.getAddress() + ".");
                 return tower;
         }
+        private static Clarinet createClarinet(){
+                int sellingPrice = getNumber("What is the selling price of the clarinet?", 0, 100000);
+                System.out.println("The clarinet will cost " + sellingPrice + " euros.");
 
+                int purchasePrice = getNumber("What is the purchase price of the clarinet?", 0, 100000);
+                System.out.println("The clarinet will cost " + purchasePrice + " euros.");
 
+                return new Clarinet(purchasePrice, sellingPrice);
+        }
+        private static Flute createFlute(){
+                int sellingPrice = getNumber("What is the selling price of the flute?", 0, 100000);
+                System.out.println("The flute will cost " + sellingPrice + " euros.");
+
+                int purchasePrice = getNumber("What is the purchase price of the flute?", 0, 100000);
+                System.out.println("The flute will cost " + purchasePrice + " euros.");
+
+                return new Flute(purchasePrice, sellingPrice);
+        }
+        private static Oboe createOboe(){
+                int sellingPrice = getNumber("What is the selling price of the oboe?", 0, 100000);
+                System.out.println("The oboe will cost " + sellingPrice + " euros.");
+
+                int purchasePrice = getNumber("What is the purchase price of the oboe?", 0, 100000);
+                System.out.println("The oboe will cost " + purchasePrice + " euros.");
+
+                return new Oboe(purchasePrice, sellingPrice);
+        }
+        private static AcousticGuitar createAcousticGuitar(){
+                int purchasePrice = getNumber("What is the purchase price of the acoustic guitar?", 0, 100000);
+                System.out.println("The acoustic guitar will cost " + purchasePrice + " euros.");
+
+                int sellingPrice = getNumber("What is the selling price of the acoustic guitar?", purchasePrice, 100000);
+                System.out.println("The acoustic guitar will cost " + sellingPrice + " euros.");
+
+                String name = getString("What is the name of the guitar?");
+                System.out.println("The guitar will be called " + name + ".");
+
+                boolean rightHanded = getStringWithOptions("Is it right handed?", new String[]{"yes", "no"}).equals("yes");
+                System.out.println("The guitar will " + (rightHanded ? "" : "not ") + "be right handed.");
+
+                int pull = getNumber("What is the pull of the guitar?", 0, 100);
+                System.out.println("The guitar will have a pull of " + pull + ".");
+
+                int length = getNumber("What is the length of the guitar?", 0, 100);
+                System.out.println("The guitar will have a length of " + length + ".");
+
+                int width = getNumber("What is the width of the guitar?", 0, 100);
+                System.out.println("The guitar will have a width of " + width + ".");
+
+                return new AcousticGuitar(name, purchasePrice, sellingPrice, rightHanded, pull, length, width);
+        }
+        private static ElectricGuitar createElectricGuitar(){
+                int purchasePrice = getNumber("What is the purchase price of the electric guitar?", 0, 100000);
+                System.out.println("The electric guitar will cost " + purchasePrice + " euros.");
+
+                int sellingPrice = getNumber("What is the selling price of the electric guitar?", purchasePrice, 100000);
+                System.out.println("The electric guitar will cost " + sellingPrice + " euros.");
+
+                String name = getString("What is the name of the guitar?");
+                System.out.println("The guitar will be called " + name + ".");
+
+                boolean amplifier = getStringWithOptions("Does it have an amplifier?", new String[]{"yes", "no"}).equals("yes");
+                System.out.println("The guitar will " + (amplifier ? "" : "not ") + "have an amplifier.");
+
+                boolean pedals = getStringWithOptions("Does it have pedals?", new String[]{"yes", "no"}).equals("yes");
+                System.out.println("The guitar will " + (pedals ? "" : "not ") + "have pedals.");
+
+                int length = getNumber("What is the length of the guitar?", 0, 100);
+                System.out.println("The guitar will have a length of " + length + ".");
+
+                int width = getNumber("What is the width of the guitar?", 0, 100);
+                System.out.println("The guitar will have a width of " + width + ".");
+
+                return new ElectricGuitar(name, purchasePrice, sellingPrice, amplifier, pedals, length, width);
+        }
+        private static DigitalPiano createDigitalPiano() {
+                int purchasePrice = getNumber("What is the purchase price of the digital piano?", 0, 100000);
+                System.out.println("The digital piano will cost " + purchasePrice + " euros.");
+
+                int sellingPrice = getNumber("What is the selling price of the digital piano?", purchasePrice, 100000);
+                System.out.println("The digital piano will cost " + sellingPrice + " euros.");
+
+                String name = getString("What is the name of the digital piano?");
+                System.out.println("The digital piano will be called " + name + ".");
+
+                SamplingRate samplingRate = SamplingRate.valueOf(getStringWithOptions("What is the sampling rate of the digital piano?", new String[]{"Low", "Medium", "High"}));
+                System.out.println("The digital piano will have a sampling rate of " + samplingRate + ".");
+
+                boolean heavy = getStringWithOptions("Is it heavy?", new String[]{"yes", "no"}).equals("yes");
+                System.out.println("The digital piano will " + (heavy ? "" : "not ") + "be heavy.");
+
+                int length = getNumber("What is the length of the digital piano?", 0, 100);
+                System.out.println("The digital piano will have a length of " + length + ".");
+
+                int width = getNumber("What is the width of the digital piano?", 0, 100);
+                System.out.println("The digital piano will have a width of " + width + ".");
+
+                int keys = getNumber("What is the number of keys of the digital piano?", 1, 100);
+                System.out.println("The digital piano will have " + keys + " keys.");
+
+                return new DigitalPiano(name, purchasePrice, sellingPrice, samplingRate, heavy, length, width, keys);
+        }
+        private static QueuePiano createQueuePiano() {
+                int purchasePrice = getNumber("What is the purchase price of the queue piano?", 0, 100000);
+                System.out.println("The queue piano will cost " + purchasePrice + " euros.");
+
+                int sellingPrice = getNumber("What is the selling price of the queue piano?", purchasePrice, 100000);
+                System.out.println("The queue piano will cost " + sellingPrice + " euros.");
+
+                String name = getString("What is the name of the queue piano?");
+                System.out.println("The queue piano will be called " + name + ".");
+
+                int strings = getNumber("What is the number of strings of the queue piano?", 1, 100);
+                System.out.println("The queue piano will have " + strings + " strings.");
+
+                int length = getNumber("What is the length of the queue piano?", 0, 100);
+                System.out.println("The queue piano will have a length of " + length + ".");
+
+                int width = getNumber("What is the width of the queue piano?", 0, 100);
+                System.out.println("The queue piano will have a width of " + width + ".");
+
+                Size size = Size.valueOf(getStringWithOptions("What is the size of the queue piano?", new String[]{"Small", "Medium", "Large"}));
+                System.out.println("The queue piano will have a size of " + size + ".");
+
+                return new QueuePiano(name, purchasePrice, sellingPrice, strings, length, width, size);
+        }
+        private static StraightPiano createStraightPiano() {
+                int purchasePrice = getNumber("What is the purchase price of the straight piano?", 0, 100000);
+                System.out.println("The straight piano will cost " + purchasePrice + " euros.");
+
+                int sellingPrice = getNumber("What is the selling price of the straight piano?", purchasePrice, 100000);
+                System.out.println("The straight piano will cost " + sellingPrice + " euros.");
+
+                String name = getString("What is the name of the straight piano?");
+                System.out.println("The straight piano will be called " + name + ".");
+
+                int strings = getNumber("What is the number of strings of the straight piano?", 1, 100);
+                System.out.println("The straight piano will have " + strings + " strings.");
+
+                boolean silenced = getStringWithOptions("Is it silenced?", new String[]{"yes", "no"}).equals("yes");
+                System.out.println("The straight piano will " + (silenced ? "" : "not ") + "be silenced.");
+
+                boolean crossedStrings = getStringWithOptions("Does it have crossed strings?", new String[]{"yes", "no"}).equals("yes");
+                System.out.println("The straight piano will " + (crossedStrings ? "" : "not ") + "have crossed strings.");
+
+                int length = getNumber("What is the length of the straight piano?", 0, 100);
+                System.out.println("The straight piano will have a length of " + length + ".");
+
+                int width = getNumber("What is the width of the straight piano?", 0, 100);
+                System.out.println("The straight piano will have a width of " + width + ".");
+
+                return new StraightPiano(name, purchasePrice, sellingPrice, silenced, crossedStrings, strings, length, width);
+        }
+        private static @NotNull Store createStore() {
+                String address = getString("What is the address of the store?");
+                System.out.println("The address will be " + address + ".");
+                int area = getNumber("What is the area of the store?", 0, 10000);
+                System.out.println("The area will be " + area + " square meters.");
+                return new Store(area, address);
+        }
         /**
          * @param message The message to display
          * @param min The minimum value
@@ -117,7 +304,6 @@ public class Main {
                 } while ( number > max || number < min);
                 return number;
         }
-
         /**
          * @param message The message to display
          * @return The string entered by the user
@@ -134,7 +320,6 @@ public class Main {
                 } while ( string == null);
                 return string;
         }
-
         /**
          * @param message The message to display
          * @param options The options to choose from
@@ -152,64 +337,45 @@ public class Main {
                 } while ( string == null || !Arrays.asList(options).contains(string));
                 return string;
         }
-
-
-
         public static ArrayList<Tower> getTowers() {
                 return towers;
         }
-
         public static ArrayList<House> getHouses() {
                 return houses;
         }
-
-        private static int displayTowerMenu() {
-                System.out.println("What would you like to do?");
-                System.out.println("1. Display all the towers");
-                System.out.println("2. Display a specific tower");
-                System.out.println("3. Display the largest tower");
-                System.out.println("4. Return to the main menu");
-                return getNumber("Please enter a number between 1 and 4", 1, 4);
-        };
-        private static int displayHouseMenu() {
-                System.out.println("What would you like to do?");
-                System.out.println("1. Display all the houses");
-                System.out.println("2. Display a specific house");
-                System.out.println("3. Display the largest house");
-                System.out.println("4. Return to the main menu");
-                return getNumber("Please enter a number between 1 and 4", 1, 4);
-        };
-        private static int displayBuildingMenu() {
-                System.out.println("What would you like to do?");
-                System.out.println("1. Display all the buildings");
-                System.out.println("2. Display a specific building");
-                System.out.println("3. Display the largest building");
-                System.out.println("4. Return to the main menu");
-                return getNumber("Please enter a number between 1 and 4", 1, 4);
-        };
-        private static void displayMainMenu() {
-                System.out.flush();
-                System.out.println("Please select an option:");
-                System.out.println("1. Create a new house");
-                System.out.println("2. Create a new tower");
-                System.out.println("3. Display all the houses");
-                System.out.println("4. Display all the towers");
-
-        };
-
-        private static void handleMainMenu() {
-                while(true) {
-                        displayMainMenu();
-                        int option = getNumber("Please enter a number between 1 and 4", 1, 4);
-                        switch (option) {
-                                case 1:
-                                        createHouse();
+        private static void instrumentsMenu(Store store) {
+                // Ask the user which type of instrument they want to create
+                String instrumentType = getStringWithOptions("What type of instrument would you like to create? It can be 'strings' or 'woodwinds'", new String[]{"strings", "woodwinds"});
+                String instrumentName;
+                // Depending on the type of instrument ask what exactly they want to create
+                if (instrumentType.equals("strings")) {
+                        instrumentName = getStringWithOptions("Which instrument would you like to create? It can be 'electric guitar', 'acoustic guitar', digital piano', 'queue piano', 'straight piano'", new String[]{"acoustic guitar", "electric guitar", "digital piano", "queue piano", "straight piano"});
+                        // Create the instrument
+                        switch (instrumentName) {
+                                case "acoustic guitar":
+                                        AcousticGuitar acousticGuitar = createAcousticGuitar();
+                                        store.addInstrument(acousticGuitar);
                                         break;
-                                case 2:
-                                        createTower(getNumber("How many apartments does it have?", 0, 1000));
+                                case "electric guitar":
+                                        ElectricGuitar electricGuitar = createElectricGuitar();
+                                        store.addInstrument(electricGuitar);
+                                        break;
+                                case "digital piano":
+                                        DigitalPiano digitalPiano = createDigitalPiano();
+                                        store.addInstrument(digitalPiano);
+                                        break;
+                                case "queue piano":
+                                        QueuePiano queuePiano = createQueuePiano();
+                                        store.addInstrument(queuePiano);
+                                        break;
+                                case "straight piano":
+                                        StraightPiano straightPiano = createStraightPiano();
+                                        store.addInstrument(straightPiano);
                                         break;
                         }
                 }
+                else {
+                        instrumentName = getStringWithOptions("Which instrument would you like to create? It can be 'flute', 'oboe', 'clarinet'", new String[]{"flute", "clarinet", "oboe"});
+                }
         }
-
 }
