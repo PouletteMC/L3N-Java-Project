@@ -1,17 +1,6 @@
 package org.example.Instruments.Strings.Pianos;
 import org.example.Instruments.Instruments;
 
-enum Size {
-    Small("Toad"), Medium("1/4"), Large("1/2"), ExtraLarge("4/4");
-    private final String value;
-    private Size(String value) {
-        this.value = value;
-    }
-    public String getValue() {
-        return value;
-    }
-}
-
 public class QueuePiano extends Instruments implements Piano {
     private final int strings;   // We assume that the number of strings cannot be changed after the fact, so the parameter is final
     private final int keys;      // We assume that the number of keys cannot be changed after the fact, so the parameter is final
