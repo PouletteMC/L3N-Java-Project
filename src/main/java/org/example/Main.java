@@ -37,7 +37,7 @@ public class Main {
          * Main method
          * Walks the user through the required initial setup and then runs the main menu
          */
-        public static void main() {
+        public static void main(String[] args) {
                 System.out.println("Hello, welcome to Mele-Mele!");
                 System.out.println("We will create three towers.");
 
