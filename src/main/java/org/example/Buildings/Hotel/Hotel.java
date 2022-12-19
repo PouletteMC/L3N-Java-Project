@@ -3,7 +3,7 @@ package org.example.Buildings.Hotel;
 import org.example.Buildings.Bar;
 import org.example.Buildings.Buildings;
 
-abstract class Hotel extends Buildings {
+public abstract class Hotel extends Buildings {
 
     private Room[] rooms;
     private int roomCount = rooms.length;

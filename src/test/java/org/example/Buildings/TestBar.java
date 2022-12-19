@@ -3,8 +3,7 @@ package org.example.Buildings;
 import org.junit.jupiter.api.*;
 
 /**
- * @author: Sebastian Pestana
- * @version: 1.0
+ * Unit test for the Bar class.
  */
 
 @DisplayName("Test Bar")
