@@ -9,6 +9,10 @@ import org.example.Instruments.Woodwinds.*;
 import static org.example.Handlers.*;
 import static org.example.Getters.*;
 
+/**
+ * @author Eliot, Adam, Laura, Sebastian
+ * @version 1.5
+ */
 public class Menus {
     protected static void mainMenu() {
         System.out.print("\033[H\033[2J");
@@ -33,6 +37,10 @@ public class Menus {
                 break;
         }
     }
+
+    /**
+     * Menu for creating instruments
+     */
     protected static void instrumentsCreationMenu() {
         // Ask the user which type of instrument they want to create
         System.out.print("\033[H\033[2J");
@@ -101,6 +109,9 @@ public class Menus {
         mainMenu();
     }
 
+    /**
+     * Menu for creating buildings
+     */
     protected static void buildingsCreationMenu(){
         System.out.println("\033[H\033[2J");
         String buildingName = getStringWithOptions("What type of building would you like to create?", new String[]{"tower", "house", "hotel", "cancel"});
@@ -125,6 +136,9 @@ public class Menus {
         mainMenu();
     }
 
+    /**
+     * Menu for listing buildings
+     */
     private static void buildingsListMenu(){
         System.out.println("\033[H\033[2J");
         String buildingName = getStringWithOptions("What type of building would you like to list?", new String[]{"towers", "houses", "hotels", "stores", "all", "cancel"});
@@ -187,6 +201,9 @@ public class Menus {
         mainMenu();
     }
 
+    /**
+     * Listing all instruments
+     */
     private static void instrumentsListMenu(){
         System.out.println("\033[H\033[2J");
         System.out.println(Main.getInstruments());

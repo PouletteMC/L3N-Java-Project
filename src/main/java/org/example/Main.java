@@ -2,19 +2,15 @@ package org.example;
 
 import org.example.Buildings.Buildings;
 import org.example.Buildings.Hotel.Hotel;
-import org.example.Buildings.House;
-import org.example.Buildings.Store;
-import org.example.Buildings.Tower;
+import org.example.Buildings.*;
 import org.example.Instruments.Instruments;
-import org.example.Person.Resident;
-import org.example.Person.Tenant;
-import org.example.Person.Tourist;
+import org.example.Person.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static org.example.Getters.getNumber;
 import static org.example.Handlers.*;
-import static org.example.Getters.*;
 import static org.example.Menus.mainMenu;
 
 
@@ -37,7 +33,11 @@ public class Main {
         protected static Store store;
 
 
-        public static void main(String[] args) {
+        /**
+         * Main method
+         * Walks the user through the required initial setup and then runs the main menu
+         */
+        public static void main() {
                 System.out.println("Hello, welcome to Mele-Mele!");
                 System.out.println("We will create three towers.");
 
