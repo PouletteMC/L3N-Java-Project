@@ -1,7 +1,6 @@
 package org.example.Buildings.Hotel;
 
 public class NormalHotel extends Hotel{
-
     /**
      * Constructor - Normal hotels cannot have a bar
      * @param name name of the hotel
@@ -10,14 +9,12 @@ public class NormalHotel extends Hotel{
      * @param rooms rooms of the hotel
      * @param floors floors of the hotel
      * @param stars stars of the hotel
-     * @param spas spas of the hotel
      * @param restaurants restaurants of the hotel
      * @see Hotel#Hotel(String, int, String, Room[], int, int, int, int, int)
      */
-    public NormalHotel(String name, int area, String address, Room[] rooms, int floors, int stars, int spas, int restaurants) {
-        super(name, area, address, rooms, floors, stars, 1, spas, restaurants);
+    public NormalHotel(String name, int area, String address, Room[] rooms, int floors, int stars, int restaurants) {
+        super(name, area, address, rooms, floors, stars, 1, 0, restaurants);
     }
-
     @Override
     public String toString() {
         return "Hotel" + super.getStars() + "{" + super.getData() + '}';
