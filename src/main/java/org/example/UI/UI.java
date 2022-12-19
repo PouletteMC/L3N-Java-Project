@@ -1,6 +1,13 @@
 package org.example.UI;
 import javax.swing.*;
 import java.awt.*;
+
+/**
+ * @author Eliot, Adam, Laura, Sebastian
+ * @since 0.5
+ * @deprecated 1.5
+ */
+
 public class UI {
     private JFrame frame;
     public UI() {
