@@ -6,9 +6,9 @@ import org.example.Buildings.Buildings;
 public abstract class Hotel extends Buildings {
 
     private Room[] rooms;
-    private int roomCount = rooms.length;
+//    private int roomCount = rooms.length;
     private int occupiedRooms;
-    private int unoccupiedRooms = roomCount - occupiedRooms;
+//    private int unoccupiedRooms = roomCount - occupiedRooms;
     private int floors;
     private int stars;
     private int pools;
@@ -28,16 +28,6 @@ public abstract class Hotel extends Buildings {
         this.bar = bar;
         this.name = name;
     }
-
-    public Hotel(String name, int area, String address, int floors, int stars, int pools, int spas, int restaurants) {
-        super(area, address);
-        this.floors = floors;
-        this.stars = stars;
-        this.pools = pools;
-        this.spas = spas;
-        this.name = name;
-        this.rooms = new Room[0];
-    }
     public Hotel(String name, int area, String address, Room[] rooms, int floors, int stars, int pools, int spas, int restaurants) {
         super(area, address);
         this.rooms = rooms;
@@ -46,6 +36,15 @@ public abstract class Hotel extends Buildings {
         this.pools = pools;
         this.spas = spas;
         this.name = name;
+    }
+    public Hotel(String name, int area, String address, int floors, int stars, int pools, int spas, int restaurants) {
+        super(area, address);
+        this.floors = floors;
+        this.stars = stars;
+        this.pools = pools;
+        this.spas = spas;
+        this.name = name;
+        this.rooms = new Room[0];
     }
 
     public Room[] getRooms() {
