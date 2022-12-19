@@ -136,7 +136,8 @@ public class Store extends Buildings{
 
     @Override
     public String toString() {
-        return name + " has " + instruments.length + " instruments in store and hires " + employees.length + " employees." + " It has a profit of " + profit + " and is located at " + getAddress() + ".";
+//        return name + " has " + instruments.length + " instruments in store and hires " + employees.length + " employees." + " It has a profit of " + profit + " and is located at " + getAddress() + ".";
+        return "This store has " + instruments.length + " instruments in store and hires " + employees.length + " employees." + " It has a profit of " + profit + " and is located at " + getAddress() + ".";
     }
 
 }
