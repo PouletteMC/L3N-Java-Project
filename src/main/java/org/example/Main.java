@@ -3,22 +3,16 @@ package org.example;
 import org.example.Buildings.*;
 import org.example.Buildings.Hotel.Hotel;
 import org.example.Instruments.Instruments;
-import org.example.Instruments.Strings.Guitars.AcousticGuitar;
-import org.example.Instruments.Strings.Guitars.ElectricGuitar;
+import org.example.Instruments.Strings.Guitars.*;
 import org.example.Instruments.Strings.Pianos.*;
-import org.example.Instruments.Woodwinds.Clarinet;
-import org.example.Instruments.Woodwinds.Flute;
-import org.example.Instruments.Woodwinds.Oboe;
+import org.example.Instruments.Woodwinds.*;
 import org.example.Person.*;
-
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
+import static org.example.Handlers.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static org.example.Handlers.*;
 
 /**
  * @author Eliot, Adam, Laura, Sebastian
@@ -42,37 +36,37 @@ public class Main {
 
                 System.out.println("The first two will have 10 apartments.");
                 System.out.println("Let's create the first one.");
-                Tower tower1 = createTower(10);
+                createTower(10);
                 System.out.print("\033[H\033[2J"); // Clear console - https://stackoverflow.com/a/2979383
 
                 System.out.println("Let's create the second one.");
-                Tower tower2 = createTower(10);
+                createTower(10);
                 System.out.println("The third tower will have 15 apartments.");
                 System.out.println("\033[H\033[2J");
 
                 System.out.println("Let's create the third one.");
-                Tower tower3 = createTower(15);
+                createTower(15);
                 System.out.println("\033[H\033[2J");
 
                 System.out.println("We'll also create five houses.");
                 System.out.println("Let's create the first one.");
-                House house1 = createHouse();
+                createHouse();
                 System.out.println("\033[H\033[2J");
 
                 System.out.println("Let's create the second one.");
-                House house2 = createHouse();
+                createHouse();
                 System.out.println("\033[H\033[2J");
 
                 System.out.println("Let's create the third one.");
-                House house3 = createHouse();
+                createHouse();
                 System.out.println("\033[H\033[2J");
 
                 System.out.println("Let's create the fourth one.");
-                House house4 = createHouse();
+                createHouse();
                 System.out.println("\033[H\033[2J");
 
                 System.out.println("Let's create the fifth one.");
-                House house5 = createHouse();
+                createHouse();
                 System.out.println("\033[H\033[2J");
 
                 System.out.println("Now we'll create a music store.");
@@ -95,7 +89,7 @@ public class Main {
         static int getNumber(String message, int min, int max) {
                 int number;
                 do {
-                        System.out.println(message);
+                        System.out.println(message + " (" + min + "-" + max + ")");
                         while (!Main.scanner.hasNextInt()) {
                                 System.out.println("That's not a number!");
                                 Main.scanner.next();
@@ -132,7 +126,7 @@ public class Main {
         static String getStringWithOptions(String message, String[] options) {
                 String string;
                 do {
-                        System.out.println(message);
+                        System.out.println(message + " (" + String.join("/", options) + ")");
                         while (!Main.scanner.hasNext()) {
                                 System.out.println("This value must be a string.");
                                 Main.scanner.next();
@@ -149,11 +143,12 @@ public class Main {
         }
         private static void instrumentsMenu(Store store) {
                 // Ask the user which type of instrument they want to create
-                String instrumentType = getStringWithOptions("What type of instrument would you like to create? It can be 'strings' or 'woodwinds'", new String[]{"strings", "woodwinds"});
+                System.out.print("\033[H\033[2J");
                 String instrumentName;
+                String instrumentType = getStringWithOptions("What type of instrument would you like to create?", new String[]{"strings", "woodwinds"});
                 // Depending on the type of instrument ask what exactly they want to create
                 if (instrumentType.equals("strings")) {
-                        instrumentName = getStringWithOptions("Which instrument would you like to create? It can be 'electric guitar', 'acoustic guitar', digital piano', 'queue piano', 'straight piano'", new String[]{"acoustic guitar", "electric guitar", "digital piano", "queue piano", "straight piano"});
+                        instrumentName = getStringWithOptions("Which instrument would you like to create?", new String[]{"acoustic guitar", "electric guitar", "digital piano", "queue piano", "straight piano"});
                         // Create the instrument
                         switch (instrumentName) {
                                 case "acoustic guitar":
@@ -179,7 +174,22 @@ public class Main {
                         }
                 }
                 else {
-                        instrumentName = getStringWithOptions("Which instrument would you like to create? It can be 'flute', 'oboe', 'clarinet'", new String[]{"flute", "clarinet", "oboe"});
+                        instrumentName = getStringWithOptions("Which instrument would you like to create?", new String[]{"flute", "clarinet", "oboe"});
+                        switch (instrumentName) {
+                                case "flute":
+                                        Flute flute = createFlute();
+                                        store.addInstrument(flute);
+                                        break;
+                                case "oboe":
+                                        Oboe oboe = createOboe();
+                                        store.addInstrument(oboe);
+                                        break;
+                                case "clarinet":
+                                        Clarinet clarinet = createClarinet();
+                                        store.addInstrument(clarinet);
+                                        break;
+                        }
                 }
+                instrumentsMenu(store);
         }
 }
