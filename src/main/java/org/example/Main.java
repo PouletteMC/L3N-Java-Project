@@ -69,6 +69,22 @@ public class Main {
                 createHouse();
                 System.out.println("\033[H\033[2J");
 
+                System.out.println("We'll create a few hotels.");
+                System.out.println("Let's start with a 5 star hotel.");
+                createHotel(5);
+                System.out.println("\033[H\033[2J");
+
+                System.out.println("Let's create a 4 star hotel.");
+                createHotel(4);
+                System.out.println("\033[H\033[2J");
+
+                System.out.println("Now we can create another two hotels");
+                createHotel(getNumber("How many stars do you want the first hotel to have?", 1,3));
+                System.out.println("\033[H\033[2J");
+
+                createHotel(getNumber("How many stars do you want the second hotel to have?", 1,3));
+                System.out.println("\033[H\033[2J");
+
                 System.out.println("Now we'll create a music store.");
                 System.out.println("Let's create the music store.");
                 Store store = createStore();
@@ -88,10 +104,13 @@ public class Main {
          */
         static int getNumber(String message, int min, int max) {
                 int number;
+                message = message + " (" + min + "-" + max + ")";
                 do {
-                        System.out.println(message + " (" + min + "-" + max + ")");
+                        System.out.println(message);
                         while (!Main.scanner.hasNextInt()) {
                                 System.out.println("That's not a number!");
+                                System.out.println("\033[H\033[2J");
+                                System.out.println(message);
                                 Main.scanner.next();
                         }
                         number = Main.scanner.nextInt();
@@ -112,6 +131,8 @@ public class Main {
                         System.out.println(message);
                         while (!Main.scanner.hasNext()) {
                                 System.out.println("This value must be a string.");
+                                System.out.println("\033[H\033[2J");
+                                System.out.println(message);
                                 Main.scanner.next();
                         }
                         string = Main.scanner.next();
@@ -125,10 +146,13 @@ public class Main {
          */
         static String getStringWithOptions(String message, String[] options) {
                 String string;
+                message = message + " (" + String.join(", ", options) + ")";
                 do {
-                        System.out.println(message + " (" + String.join("/", options) + ")");
+                        System.out.println(message);
                         while (!Main.scanner.hasNext()) {
                                 System.out.println("This value must be a string.");
+                                System.out.println("\033[H\033[2J");
+                                System.out.println(message);
                                 Main.scanner.next();
                         }
                         string = Main.scanner.next();
