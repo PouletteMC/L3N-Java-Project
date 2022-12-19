@@ -1,8 +1,6 @@
 package org.example;
 
-import org.example.Buildings.Hotel.Hotel;
-import org.example.Buildings.Hotel.Hotel5;
-import org.example.Buildings.Hotel.Room;
+import org.example.Buildings.Hotel.*;
 import org.example.Buildings.House;
 import org.example.Buildings.Store;
 import org.example.Buildings.Tower;
@@ -19,6 +17,12 @@ import static org.example.Main.*;
 
 
 public class Handlers {
+    private static int stars;
+
+    /**
+     * @return The house
+     * @see House
+     */
     static @NotNull House createHouse() {
         String houseAddress = getString("Please enter the address of the house");
         System.out.println("The address will be " + houseAddress + ".");
@@ -45,6 +49,12 @@ public class Handlers {
         System.out.println("The house has been created.");
         return house;
     }
+
+    /**
+     * @param apartments The number of apartments in the tower
+     * @return The created tower
+     * @see Tower
+     */
     static @NotNull Tower createTower(int apartments) {
         String towerName = getString("What is the name of the tower?");
         System.out.println("The first tower will be called " + towerName + ".");
@@ -61,6 +71,11 @@ public class Handlers {
         System.out.println("Created a new tower called " + tower.getName() + " with " + tower.getOffices() + " offices" + " and " + tower.getApartments() + " apartments over " + tower.getFloors() + " floors and will be located at " + tower.getAddress() + ".");
         return tower;
     }
+
+    /**
+     * @return The created store
+     * @see Store
+     */
     static @NotNull Store createStore() {
         String address = getString("What is the address of the store?");
         System.out.println("The address will be " + address + ".");
@@ -71,27 +86,28 @@ public class Handlers {
         buildings.add(store);
         return store;
     }
+
+    /**
+     * @param stars The number of stars of the hotel
+     * @return The created hotel
+     * @see Hotel
+     */
     static @NotNull Hotel createHotel(int stars){
         switch (stars){
-            case 1:
-                System.out.println("Creating a 1 star hotel.");
-                break;
-            case 2:
-                System.out.println("Creating a 2 star hotel.");
-                break;
-            case 3:
-                System.out.println("Creating a 3 star hotel.");
-                break;
-            case 4:
-                System.out.println("Creating a 4 star hotel.");
-                break;
             case 5:
-                System.out.println("Creating a 5 star hotel.");
-                break;
+                return createHotel5();
+            case 4:
+                return createHotel4();
+            default:
+                return createNormalHotel(stars);
         }
     }
 
-    private static Hotel5 createHotel5(){
+    /**
+     * @return The created 5-star hotel
+     * @see Hotel5
+     */
+    private static @NotNull Hotel5 createHotel5(){
         String name = getString("What is the name of the hotel?");
         System.out.println("The hotel will be called " + name + ".");
 
@@ -101,10 +117,10 @@ public class Handlers {
         String address = getString("What is the address of the hotel?");
         System.out.println("The address will be " + address + ".");
 
-        Room[] rooms = new Room[getNumber("How many rooms does the hotel have?", 0, 20)];
+        Room[] rooms = new Room[getNumber("How many rooms does the hotel have?", 0, 50)];
+        System.out.println("The hotel will have " + rooms.length + " rooms.");
 
-
-        int floors = getNumber("How many floors does it have?", 0, 100);
+        int floors = getNumber("How many floors does it have?", 0, 30);
         System.out.println("The hotel will have " + floors + " floors.");
 
         int pools = getNumber("How many pools does it have?", 0, 10);
@@ -113,13 +129,78 @@ public class Handlers {
         int spas = getNumber("How many spas does it have?", 0, 3);
         System.out.println("The hotel will have " + spas + " spas.");
 
-        int restaurants = getNumber("How many restaurants does it have?", 0, 3);
+        int restaurants = getNumber("How many restaurants does it have?", 0, 8);
         System.out.println("The hotel will have " + restaurants + " restaurants.");
 
         int suites = getNumber("How many suites does it have?", 0, 10);
         System.out.println("The hotel will have " + suites + " suites.");
 
-        Hotel5 hotel = new Hotel5(name, area, address, roomArray, floors, pools, spas, restaurants, suites);
+        Hotel5 hotel = new Hotel5(name, area, address, rooms, floors, pools, spas, restaurants, suites);
+        hotels.add(hotel);
+        buildings.add(hotel);
+        return hotel;
+    }
+
+    /**
+     * @return The created 4-star hotel
+     * @see Hotel4
+     */
+    private static @NotNull Hotel4 createHotel4(){
+        String name = getString("What is the name of the hotel?");
+        System.out.println("The hotel will be called " + name + ".");
+
+        int area = getNumber("What is the area of the hotel?", 0, 50000);
+        System.out.println("The area will be " + area + " square meters.");
+
+        String address = getString("What is the address of the hotel?");
+        System.out.println("The address will be " + address + ".");
+
+        Room[] rooms = new Room[getNumber("How many rooms does the hotel have?", 0, 40)];
+        System.out.println("The hotel will have " + rooms.length + " rooms.");
+
+        int floors = getNumber("How many floors does it have?", 0, 20);
+        System.out.println("The hotel will have " + floors + " floors.");
+
+        int spas = getNumber("How many spas does it have?", 0, 10);
+        System.out.println("The hotel will have " + spas + " spas.");
+
+        int restaurants = getNumber("How many restaurants does it have?", 0, 4);
+        System.out.println("The hotel will have " + restaurants + " restaurants.");
+
+        Hotel4 hotel = new Hotel4(name, area, address, rooms, floors, spas, restaurants);
+        hotels.add(hotel);
+        buildings.add(hotel);
+        return hotel;
+    }
+
+    /**
+     * @param stars The number of stars of the hotel
+     * @return The created hotel
+     */
+    private static @NotNull NormalHotel createNormalHotel(int stars){
+        Handlers.stars = stars;
+        String name = getString("What is the name of the hotel?");
+        System.out.println("The hotel will be called " + name + ".");
+
+        int area = getNumber("What is the area of the hotel?", 0, 50000);
+        System.out.println("The area will be " + area + " square meters.");
+
+        String address = getString("What is the address of the hotel?");
+        System.out.println("The address will be " + address + ".");
+
+        Room[] rooms = new Room[getNumber("How many rooms does the hotel have?", 0, stars * 10)];
+        System.out.println("The hotel will have " + rooms.length + " rooms.");
+
+        int floors = getNumber("How many floors does it have?", 0, 10);
+        System.out.println("The hotel will have " + floors + " floors.");
+
+        int restaurants = getNumber("How many restaurants does it have?", 0, 2);
+        System.out.println("The hotel will have " + restaurants + " restaurants.");
+
+        NormalHotel hotel = new NormalHotel(name, area, address, rooms, stars, floors, restaurants);
+        hotels.add(hotel);
+        buildings.add(hotel);
+        return hotel;
     }
     @Contract(" -> new")
     static @NotNull Clarinet createClarinet(){
