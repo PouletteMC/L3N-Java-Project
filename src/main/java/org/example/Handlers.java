@@ -13,8 +13,7 @@ import org.example.Instruments.Woodwinds.Oboe;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-import static org.example.Main.*;
-
+import static org.example.Getters.*;
 
 public class Handlers {
     private static int stars;
@@ -44,8 +43,8 @@ public class Handlers {
         System.out.println("The house will " + (hasGarden ? "have a garden of " + houseGardenArea + " square meters." : "not have a garden."));
 
         House house = new House(houseArea, houseAddress, houseGardenArea, houseRooms, houseFloors, hasGarage);
-        houses.add(house);
-        buildings.add(house);
+        Main.houses.add(house);
+        Main.buildings.add(house);
         System.out.println("The house has been created.");
         return house;
     }
@@ -66,11 +65,32 @@ public class Handlers {
         System.out.println("The tower will have " + towerOffices + " offices.");
 
         Tower tower = new Tower(towerName, apartments, towerOffices, towerAddress);
-        towers.add(tower);
-        buildings.add(tower);
+        Main.towers.add(tower);
+        Main.buildings.add(tower);
         System.out.println("Created a new tower called " + tower.getName() + " with " + tower.getOffices() + " offices" + " and " + tower.getApartments() + " apartments over " + tower.getFloors() + " floors and will be located at " + tower.getAddress() + ".");
         return tower;
     }
+
+    static @NotNull Tower createTower() {
+        String towerName = getString("What is the name of the tower?");
+        System.out.println("The first tower will be called " + towerName + ".");
+
+        int apartments = getNumber("How many apartments does it have?", 0, 100);
+        System.out.println("The tower will have " + apartments + " apartments.");
+
+        String towerAddress = getString("What is the address of the tower?");
+        System.out.println("The address will be " + towerAddress + ".");
+
+        int towerOffices = getNumber("How many offices does it have?", 0, 100);
+        System.out.println("The tower will have " + towerOffices + " offices.");
+
+        Tower tower = new Tower(towerName, apartments, towerOffices, towerAddress);
+        Main.towers.add(tower);
+        Main.buildings.add(tower);
+        System.out.println("Created a new tower called " + tower.getName() + " with " + tower.getOffices() + " offices" + " and " + tower.getApartments() + " apartments over " + tower.getFloors() + " floors and will be located at " + tower.getAddress() + ".");
+        return tower;
+    }
+
 
     /**
      * @return The created store
@@ -83,7 +103,8 @@ public class Handlers {
         System.out.println("The area will be " + area + " square meters.");
 
         Store store = new Store(area, address);
-        buildings.add(store);
+        Main.buildings.add(store);
+        Main.stores.add(store);
         return store;
     }
 
@@ -101,6 +122,23 @@ public class Handlers {
             default:
                 return createNormalHotel(stars);
         }
+    }
+
+    static Hotel createHotel(){
+        stars = getNumber("How many stars does the hotel have?", 1, 5);
+        switch (stars){
+            case 5:
+                return createHotel5();
+            case 4:
+                return createHotel4();
+            case 3:
+                return createNormalHotel(3);
+            case 2:
+                return createNormalHotel(2);
+            case 1:
+                return createNormalHotel(1);
+        }
+        return null;
     }
 
     /**
@@ -136,8 +174,8 @@ public class Handlers {
         System.out.println("The hotel will have " + suites + " suites.");
 
         Hotel5 hotel = new Hotel5(name, area, address, rooms, floors, pools, spas, restaurants, suites);
-        hotels.add(hotel);
-        buildings.add(hotel);
+        Main.hotels.add(hotel);
+        Main.buildings.add(hotel);
         return hotel;
     }
 
@@ -168,8 +206,8 @@ public class Handlers {
         System.out.println("The hotel will have " + restaurants + " restaurants.");
 
         Hotel4 hotel = new Hotel4(name, area, address, rooms, floors, spas, restaurants);
-        hotels.add(hotel);
-        buildings.add(hotel);
+        Main.hotels.add(hotel);
+        Main.buildings.add(hotel);
         return hotel;
     }
 
@@ -198,8 +236,8 @@ public class Handlers {
         System.out.println("The hotel will have " + restaurants + " restaurants.");
 
         NormalHotel hotel = new NormalHotel(name, area, address, rooms, stars, floors, restaurants);
-        hotels.add(hotel);
-        buildings.add(hotel);
+        Main.hotels.add(hotel);
+        Main.buildings.add(hotel);
         return hotel;
     }
     @Contract(" -> new")
@@ -211,7 +249,7 @@ public class Handlers {
         System.out.println("The clarinet will cost " + purchasePrice + " euros.");
 
         Clarinet clarinet = new Clarinet(purchasePrice, sellingPrice);
-        instruments.add(clarinet);
+        Main.instruments.add(clarinet);
         return clarinet;
     }
     @Contract(" -> new")
@@ -223,7 +261,7 @@ public class Handlers {
         System.out.println("The flute will cost " + purchasePrice + " euros.");
 
         Flute flute = new Flute(purchasePrice, sellingPrice);
-        instruments.add(flute);
+        Main.instruments.add(flute);
         return flute;
     }
     @Contract(" -> new")
@@ -235,7 +273,7 @@ public class Handlers {
         System.out.println("The oboe will cost " + purchasePrice + " euros.");
 
         Oboe oboe = new Oboe(purchasePrice, sellingPrice);
-        instruments.add(oboe);
+        Main.instruments.add(oboe);
         return oboe;
     }
     @Contract(" -> new")
@@ -262,7 +300,7 @@ public class Handlers {
         System.out.println("The guitar will have a width of " + width + ".");
 
         AcousticGuitar acousticGuitar = new AcousticGuitar(name, purchasePrice, sellingPrice, rightHanded, pull, length, width);
-        instruments.add(acousticGuitar);
+        Main.instruments.add(acousticGuitar);
         return acousticGuitar;
     }
     @Contract(" -> new")
@@ -289,7 +327,7 @@ public class Handlers {
         System.out.println("The guitar will have a width of " + width + ".");
 
         ElectricGuitar electricGuitar = new ElectricGuitar(name, purchasePrice, sellingPrice, amplifier, pedals, length, width);
-        instruments.add(electricGuitar);
+        Main.instruments.add(electricGuitar);
         return electricGuitar;
     }
     @Contract(" -> new")
@@ -319,7 +357,7 @@ public class Handlers {
         System.out.println("The digital piano will have " + keys + " keys.");
 
         DigitalPiano digitalPiano = new DigitalPiano(name, purchasePrice, sellingPrice, samplingRate, heavy, length, width, keys);
-        instruments.add(digitalPiano);
+        Main.instruments.add(digitalPiano);
         return digitalPiano;
     }
     @Contract(" -> new")
@@ -346,7 +384,7 @@ public class Handlers {
         System.out.println("The queue piano will have a size of " + size + ".");
 
         QueuePiano queuePiano = new QueuePiano(name, purchasePrice, sellingPrice, strings, length, width, size);
-        instruments.add(queuePiano);
+        Main.instruments.add(queuePiano);
         return queuePiano;
     }
     @Contract(" -> new")
@@ -376,7 +414,7 @@ public class Handlers {
         System.out.println("The straight piano will have a width of " + width + ".");
 
         StraightPiano straightPiano = new StraightPiano(name, purchasePrice, sellingPrice, silenced, crossedStrings, strings, length, width);
-        instruments.add(straightPiano);
+        Main.instruments.add(straightPiano);
         return straightPiano;
     }
 }
