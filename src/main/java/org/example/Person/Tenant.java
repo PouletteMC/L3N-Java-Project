@@ -1,10 +1,14 @@
 package org.example.Person;
 
 import org.example.Buildings.House;
+import org.example.Buildings.Tower;
 
 /**
- * @authors: Eliot Barbe, Sebastian Pestana, Adam N'Mily, Laura Ghostine
- * @version: 1.0
+ * @author Eliot, Sebastian, Adam, Laura
+ * @version 1.0
+ * Creates a tenant who can rent a house or apartment in a tower.
+ * @see House
+ * @see Tower
  */
 
 public class Tenant extends Person {
@@ -13,9 +17,9 @@ public class Tenant extends Person {
 
     /**
      * Constructor of the Tenant class without a house
-     * @param name
-     * @param surname
-     * @param age
+     * @param name Name of the tenant
+     * @param surname Surname of the tenant
+     * @param age Age of the tenant
      * @see Person#Person(String, String, int)  Person
      */
     public Tenant(String name, String surname, int age) {
@@ -24,17 +28,16 @@ public class Tenant extends Person {
 
     /**
      * Constructor with a house
-     * @param name
-     * @param surname
-     * @param age
-     * @param house
+     * @param name Name of the tenant
+     * @param surname Surname of the tenant
+     * @param age Age of the tenant
+     * @param house House the tenant lives in
      * @see Person#Person(String, String, int)  Person
      */
     public Tenant(String name, String surname, int age, House house) {
         super(name, surname, age);
         this.house = house;
     }
-
     /**
      * @return the house
      * @see House

@@ -1,15 +1,28 @@
 package org.example.Buildings;
+
 import org.example.Person.Resident;
-import org.example.Person.Person;
 
 import java.util.Arrays;
 
+/**
+ * Creates a Bar object
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
+ * @version 1.0
+ */
 public class Bar extends Buildings {
     private String name;
     private int capacity;
     private int minAge;
     private Resident[] staff;
 
+    /**
+     * Constructor for a bar with no staff
+     * @param name name of the bar
+     * @param area in square meters
+     * @param address street address
+     * @param capacity number of people the bar can hold
+     * @param minAge minimum age to enter the bar
+     */
     public Bar(String name, int area, String address, int capacity, int minAge) {
         super(area, address);
         this.name = name;
@@ -17,6 +30,15 @@ public class Bar extends Buildings {
         this.minAge = minAge;
     }
 
+    /**
+        * Constructor for a bar with staff
+     * @param name name of the bar
+     * @param area in square meters
+     * @param address street address
+     * @param capacity number of people the bar can hold
+     * @param minAge minimum age to enter the bar
+     * @param staff the staff of the bar
+     */
     public Bar(String name, int area, String address, int capacity, int minAge, Resident[] staff) {
         super(area, address);
         this.name = name;
@@ -25,6 +47,16 @@ public class Bar extends Buildings {
         this.staff = staff;
     }
 
+    /**
+     * Constructor for a bar with a staff and owner
+     * @param name name of the bar
+     * @param area in square meters
+     * @param address street address
+     * @param capacity number of people the bar can hold
+     * @param minAge minimum age to enter the bar
+     * @param staff the staff of the bar
+     * @param resident the owner of the bar
+     */
     public Bar(String name, int area, String address, int capacity, int minAge, Resident[] staff, Resident resident) {
         super(area, address);
         this.name = name;
@@ -44,7 +76,6 @@ public class Bar extends Buildings {
     public int getMinAge() {
         return minAge;
     }
-
 
     public Resident[] getStaff() {
         return staff;
@@ -80,11 +111,19 @@ public class Bar extends Buildings {
         return capacity == bar.capacity && minAge == bar.minAge && name.equals(bar.name) && Arrays.equals(staff, bar.staff);
     }
 
+    /**
+     *
+     * @return The tax on the bar
+     */
     public double getTax() {
         if(capacity >= 100) return rateA * area;
         return rateB * area;
     }
 
+    /**
+     * Adds a staff member to the bar
+     * @param resident the staff member to be added
+     */
     public void addStaff(Resident resident) {
         Resident[] newStaff = new Resident[staff.length + 1];
         System.arraycopy(staff, 0, newStaff, 0, staff.length);
@@ -92,6 +131,10 @@ public class Bar extends Buildings {
         staff = newStaff;
     }
 
+    /**
+     * Removes a staff member from the bar
+     * @param resident the staff member to be removed
+     */
     public void removeStaff(Resident resident) {
         Resident[] newStaff = new Resident[staff.length - 1];
         int index = 0;

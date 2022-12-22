@@ -2,6 +2,11 @@ package org.example.Instruments.Strings.Pianos;
 
 import org.example.Instruments.Instruments;
 
+/**
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
+ * @version 1.0
+ * Creates a new Straight Piano object
+ */
 public class StraightPiano extends Instruments implements Piano {
     private boolean silenced;     // We assume that the Piano can be silenced after the fact
     private final boolean crossedStrings; // We assume that the strings cannot be crossed after the fact, so the parameter is final
@@ -10,6 +15,17 @@ public class StraightPiano extends Instruments implements Piano {
     private final int length;     // We assume that the length cannot be changed after the fact, so the parameter is final
     private final int width;      // We assume that the width cannot be changed after the fact, so the parameter is final
 
+    /**
+     * @param name The name of the instrument
+     * @param purchasePrice The purchase price of the instrument
+     * @param sellingPrice The selling price of the instrument
+     * @param silenced Whether the instrument is silenced or not
+     * @param crossedStrings Whether the strings are crossed or not
+     * @param strings The number of strings on the instrument
+     * @param keys The number of keys on the instrument
+     * @param length The length of the instrument
+     * @param width The width of the instrument
+     */
     public StraightPiano(String name, int purchasePrice, int sellingPrice, boolean silenced, boolean crossedStrings, int strings, int keys, int length, int width) {
         super(name, purchasePrice, sellingPrice);
         this.silenced = silenced;
@@ -20,6 +36,16 @@ public class StraightPiano extends Instruments implements Piano {
         this.width = width;
     }
 
+    /**
+     * @param name The name of the instrument
+     * @param purchasePrice The purchase price of the instrument
+     * @param sellingPrice The selling price of the instrument
+     * @param silenced Whether the instrument is silenced or not
+     * @param crossedStrings Whether the strings are crossed or not
+     * @param keys The number of keys on the instrument
+     * @param length The length of the instrument
+     * @param width The width of the instrument
+     */
     public StraightPiano(String name, int purchasePrice, int sellingPrice, boolean silenced, boolean crossedStrings, int keys, int length, int width) {
         super(name, purchasePrice, sellingPrice);
         this.silenced = silenced;
@@ -29,7 +55,15 @@ public class StraightPiano extends Instruments implements Piano {
         this.length = length;
         this.width = width;
     }
-
+    /**
+     * @param name The name of the instrument
+     * @param purchasePrice The purchase price of the instrument
+     * @param sellingPrice The selling price of the instrument
+     * @param silenced Whether the instrument is silenced or not
+     * @param crossedStrings Whether the strings are crossed or not
+     * @param length The length of the instrument
+     * @param width The width of the instrument
+     */
     public StraightPiano(String name, int purchasePrice, int sellingPrice, boolean silenced, boolean crossedStrings, int length, int width) {
         super(name, purchasePrice, sellingPrice);
         this.silenced = silenced;

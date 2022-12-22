@@ -1,5 +1,11 @@
 package org.example.Person;
 
+/**
+ * @author Eliot, Adam, Laura, Sebastian
+ * @version 1.5
+ * Abstract class that defines parameters, methods and signatures for all Person objects
+ */
+
 public abstract class Person {
     private final String name;
     private final String surname;

@@ -1,6 +1,10 @@
 package org.example;
 
 import java.util.Arrays;
+/**
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
+ * @version 1.0
+ */
 
 public class Getters {
     /**

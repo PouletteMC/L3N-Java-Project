@@ -15,6 +15,12 @@ import org.jetbrains.annotations.NotNull;
 
 import static org.example.Getters.*;
 
+/**
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
+ * @version 1.0
+ * Functions that handle the creation of new objects from the command line
+ */
+
 public class Handlers {
     private static int stars;
 

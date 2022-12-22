@@ -2,13 +2,8 @@ package org.example.Instruments;
 
 /**
  * This is the parent class of all instruments
- * @Param: name
- * @Param: purchasePrice
- * @Param: sellingPrice
- * @Method: toString() - returns a string representation of the instrument
- * @Method: getPurchasePrice() - returns the purchase price of the instrument
- * @Method: getSellingPrice() - returns the selling price of the instrument
- * @Method: getProfit() - returns the profit of the instrument
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
+ * @version 1.0
  */
 
 public abstract class Instruments {
@@ -16,6 +11,12 @@ public abstract class Instruments {
     private int purchasePrice;
     private int sellingPrice;
 
+    /**
+     * Constructor of the Instruments class
+     * @param name Name of the instrument
+     * @param purchasePrice Purchase price of the instrument
+     * @param sellingPrice Selling price of the instrument
+     */
     public Instruments(String name, int purchasePrice, int sellingPrice) {
         this.name = name;
         this.purchasePrice = purchasePrice;
@@ -51,5 +52,9 @@ public abstract class Instruments {
         this.sellingPrice = sellingPrice;
     }
 
+    /**
+     * @return the name of the instrument
+     * Signature - Forces its children to implement this method
+     */
     public abstract String toString(); // Forces subclasses to implement this method
 }

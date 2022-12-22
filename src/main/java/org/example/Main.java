@@ -15,8 +15,9 @@ import static org.example.Menus.mainMenu;
 
 
 /**
- * @author Eliot, Adam, Laura, Sebastian
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
  * @version 1.5
+ * Main class for the program. Runs the CLI tool that interacts with the user.
  */
 
 public class Main {
@@ -35,7 +36,7 @@ public class Main {
 
         /**
          * Main method
-         * Walks the user through the required initial setup and then runs the main menu
+         * Walks the user through the required initial setup then runs the main menu
          */
         public static void main(String[] args) {
                 System.out.println("Hello, welcome to Mele-Mele!");

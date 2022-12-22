@@ -2,10 +2,12 @@ package org.example.Instruments.Strings.Pianos;
 
 import org.example.Instruments.Instruments;
 
-;
-
+/**
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
+ * @version 1.0
+ * Creates a Digital Piano object
+ */
 public class DigitalPiano extends Instruments implements Piano {
-
     private int samplingRate;
     private final int keys;
     private final int strings;
@@ -13,6 +15,17 @@ public class DigitalPiano extends Instruments implements Piano {
     private final int length;
     private final int width;
 
+    /**
+     * @param name The name of the instrument
+     * @param purchasePrice The purchase price of the instrument
+     * @param sellingPrice The selling price of the instrument
+     * @param samplingRate The sampling rate of the instrument
+     * @param heavy Whether or bot the instrument is heavy
+     * @param length The length of the instrument
+     * @param width The width of the instrument
+     * @param keys The number of keys on the instrument
+     * @param strings The number of strings on the instrument
+     */
     public DigitalPiano(String name, int purchasePrice, int sellingPrice, SamplingRate samplingRate, boolean heavy, int length, int width,  int keys, int strings) {
         super(name, purchasePrice, sellingPrice);
         this.samplingRate = samplingRate.getValue();
@@ -23,6 +36,16 @@ public class DigitalPiano extends Instruments implements Piano {
         this.width = width;
     }
 
+    /**
+     * @param name The name of the instrument
+     * @param purchasePrice The purchase price of the instrument
+     * @param sellingPrice The selling price of the instrument
+     * @param samplingRate The sampling rate of the instrument
+     * @param heavy Whether or bot the instrument is heavy
+     * @param length The length of the instrument
+     * @param width The width of the instrument
+     * @param keys The number of keys on the instrument
+     */
     public DigitalPiano(String name, int purchasePrice, int sellingPrice, SamplingRate samplingRate, boolean heavy, int length, int width,  int keys) {
         super(name, purchasePrice, sellingPrice);
         this.samplingRate = samplingRate.getValue();
@@ -32,7 +55,15 @@ public class DigitalPiano extends Instruments implements Piano {
         this.length = length;
         this.width = width;
     }
-
+    /**
+     * @param name The name of the instrument
+     * @param purchasePrice The purchase price of the instrument
+     * @param sellingPrice The selling price of the instrument
+     * @param samplingRate The sampling rate of the instrument
+     * @param heavy Whether or bot the instrument is heavy
+     * @param length The length of the instrument
+     * @param width The width of the instrument
+     */
     public DigitalPiano(String name, int purchasePrice, int sellingPrice, SamplingRate samplingRate, boolean heavy, int length, int width) {
         super(name, purchasePrice, sellingPrice);
         this.samplingRate = samplingRate.getValue();

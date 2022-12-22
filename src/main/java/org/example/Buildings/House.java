@@ -3,6 +3,7 @@ package org.example.Buildings;
 import org.example.Person.Resident;
 
 /**
+ * Creates a House object
  * @author Eliot, Adam, Laura, Sebastian
  * @version 1.0
  */

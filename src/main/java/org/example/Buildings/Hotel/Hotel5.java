@@ -3,8 +3,8 @@ package org.example.Buildings.Hotel;
 import org.example.Buildings.Bar;
 
 /**
- *
- * @author Eliot
+ * Creates a 5-star Hotel object
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
  * @version 1.0
  */
 public class Hotel5 extends Hotel {

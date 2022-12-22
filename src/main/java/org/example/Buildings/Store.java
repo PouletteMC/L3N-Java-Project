@@ -3,8 +3,12 @@ package org.example.Buildings;
 import org.example.Instruments.Instruments;
 import org.example.Person.Resident;
 
+/**
+ * Creates a store object
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
+ * @version 1.0
+ */
 public class Store extends Buildings{
-
     private Instruments[] instruments;
     private Resident[] employees;
     private int profit = 0;
@@ -73,6 +77,10 @@ public class Store extends Buildings{
         this.profit = profit;
     }
 
+    /**
+     *  Adds an instrument to the store
+     * @param instrument the instrument to be added
+     */
     public void addInstrument(Instruments instrument) {
         Instruments[] newInstruments = new Instruments[this.instruments.length + 1];
         System.arraycopy(this.instruments, 0, newInstruments, 0, this.instruments.length);
@@ -80,6 +88,10 @@ public class Store extends Buildings{
         this.instruments = newInstruments;
     }
 
+    /**
+     * Removes an instrument from the store
+     * @param instrument the instrument to be removed
+     */
     public void removeInstrument(Instruments instrument) {
         Instruments[] newInstruments = new Instruments[this.instruments.length - 1];
         int index = 0;
@@ -91,6 +103,10 @@ public class Store extends Buildings{
         this.instruments = newInstruments;
     }
 
+    /**
+     * Adds an employee to the store
+     * @param employee The employee to hire
+     */
     public void addEmployee(Resident employee) {
         Resident[] newEmployees = new Resident[this.employees.length + 1];
         System.arraycopy(this.employees, 0, newEmployees, 0, this.employees.length);
@@ -98,6 +114,10 @@ public class Store extends Buildings{
         this.employees = newEmployees;
     }
 
+    /**
+     * Removes an employee from the staff
+     * @param employee The employee to remove
+     */
     public void removeEmployee(Resident employee) {
         Resident[] newEmployees = new Resident[this.employees.length - 1];
         int index = 0;
@@ -109,26 +129,48 @@ public class Store extends Buildings{
         this.employees = newEmployees;
     }
 
+    /**
+     * Sells an instrument to a customer
+     * @param instrument The instrument to sell
+     * @see Instruments#sellingPrice
+     */
     public void sellInstrument(Instruments instrument) {
         removeInstrument(instrument);
         profit += instrument.getProfit();
         totalProfit += instrument.getProfit();
     }
 
+    /**
+     * Buys an instrument from a supplier
+     * @param instrument The instrument to buy
+     * @see Instruments#purchasePrice
+     */
     public void buyInstrument(Instruments instrument) {
         addInstrument(instrument);
         profit -= instrument.getPurchasePrice();
         totalProfit -= instrument.getPurchasePrice();
     }
 
+    /**
+     * Adds an employee to the staff
+     * @param employee The employee to hire
+     */
     public void hireEmployee(Resident employee) {
         addEmployee(employee);
     }
 
+    /**
+     * Removes an employee from the staff
+     * @param employee The employee to fire
+     */
     public void fireEmployee(Resident employee) {
         removeEmployee(employee);
     }
 
+    /**
+     *
+     * @return The tax om the store
+     */
     @Override
     public double getTax() {
         return rateA * area;

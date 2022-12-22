@@ -10,8 +10,9 @@ import static org.example.Handlers.*;
 import static org.example.Getters.*;
 
 /**
- * @author Eliot, Adam, Laura, Sebastian
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
  * @version 1.5
+ * Handles the different menus
  */
 public class Menus {
     protected static void mainMenu() {

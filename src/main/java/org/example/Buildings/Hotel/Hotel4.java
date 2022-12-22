@@ -4,8 +4,8 @@ import org.example.Buildings.Bar;
 
 
 /**
- *
- * @author Eliot
+ * Creates a 4-star Hotel object
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
  * @version 1.0
  */
 

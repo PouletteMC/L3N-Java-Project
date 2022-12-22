@@ -1,5 +1,9 @@
 package org.example.Buildings.Hotel;
-
+/**
+ * Creates a 1/2/3 star Hotel object
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
+ * @version 1.0
+ */
 public class NormalHotel extends Hotel{
     /**
      * Constructor - Normal hotels cannot have a bar

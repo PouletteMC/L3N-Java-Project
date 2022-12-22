@@ -3,6 +3,12 @@ package org.example.Person;
 import org.example.Buildings.Buildings;
 import org.example.Buildings.House;
 
+/**
+ * @author Eliot, Adam, Laura, Sebastian
+ * @version 1.0
+ * Creates a resident of the island. Residents can own a building.
+ * @see Buildings
+ */
 public class Resident extends Person {
 
     private Buildings[] buildings;

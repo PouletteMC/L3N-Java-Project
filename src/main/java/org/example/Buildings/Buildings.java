@@ -6,7 +6,7 @@ import org.example.Person.Resident;
 public abstract class Buildings {
 
     protected  int area; // in square meters
-    protected Resident resident; // resident of the building
+    protected Resident owner; // owner of the building
     protected String address; // street address
     protected double rateA = 5.6;
     protected double rateB = 1.5;
@@ -16,10 +16,10 @@ public abstract class Buildings {
         this.address = address; // Set the address
     }
 
-    public Buildings( int area, String address, Resident resident) {
+    public Buildings( int area, String address, Resident owner) {
         this.area = area; // Set the area
         this.address = address; // Set the address
-        this.resident = resident; // Set the resident
+        this.owner = owner; // Set the resident
     }
 
     public int getArea() {
@@ -39,11 +39,11 @@ public abstract class Buildings {
     }
 
     public Resident getOwner() {
-        return resident; // Return the resident
+        return owner; // Return the resident
     }
 
     public void setOwner(Resident resident) {
-        this.resident = resident; // Set the resident
+        this.owner = resident; // Set the resident
     }
 
     /**

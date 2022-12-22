@@ -3,6 +3,11 @@ package org.example.Buildings;
 import org.example.Person.Person;
 import org.example.Person.Resident;
 
+/**
+ * Creates a Tower object
+ * @author Eliot, Adam, Laura, Sebastian, Thomas
+ * @version 1.0
+ */
 public class Tower extends Buildings {
 
     private int floors;
